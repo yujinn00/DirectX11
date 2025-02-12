@@ -5,6 +5,7 @@
 #include <memory>
 #include <string>
 #include <Windows.h>
+#include <d3d11.h>
 
 namespace Blue
 {
@@ -26,6 +27,10 @@ namespace Blue
 
 		// ΩÃ±€≈Ê ¡¢±Ÿ «‘ºˆ
 		static Engine& Get();
+
+		// ∞‘≈Õ
+		ID3D11Device& Device() const;
+		ID3D11DeviceContext& Context() const;
 
 	protected:
 		// √¢ ∞¥√º

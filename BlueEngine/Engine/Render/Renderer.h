@@ -5,6 +5,7 @@
 // DirectX11 헤더
 #include <d3d11.h>
 #include <dxgi.h>
+#include <memory>
 
 namespace Blue
 {
@@ -12,6 +13,10 @@ namespace Blue
 	// RHI - Render Hardware Interface
 	class Renderer
 	{
+		// 엔진 클래스 friend 선언
+		// 늘 당연하지만 friend 보단 게터 및 세터가 권장됨
+		friend class Engine;
+
 	public:
 		Renderer(uint32 width, uint32 height, HWND window);
 		~Renderer();
@@ -39,11 +44,20 @@ namespace Blue
 		// 인덱스 버퍼 (정점을 조립할 때 정점의 순서를 전달)
 		ID3D11Buffer* indexBuffer = nullptr;
 
-		// 입력 레이아웃
-		ID3D11InputLayout* inputLayout = nullptr;
-
 		// 쉐이더 객체
-		ID3D11VertexShader* vertexShader = nullptr;
-		ID3D11PixelShader* pixelShader = nullptr;
+		//std::unique_ptr<class Shader> shader;
+
+		// 삼각형 메시 객체
+		std::unique_ptr<class TriangleMesh> tMesh;
+
+		// 사각형 메시 객체
+		std::unique_ptr<class QuadMesh> qMesh;
+
+		//// 입력 레이아웃
+		//ID3D11InputLayout* inputLayout = nullptr;
+
+		//// 쉐이더 객체
+		//ID3D11VertexShader* vertexShader = nullptr;
+		//ID3D11PixelShader* pixelShader = nullptr;
 	};
 }
