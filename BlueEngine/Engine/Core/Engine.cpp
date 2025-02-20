@@ -1,6 +1,6 @@
 #include "Engine.h"
 #include "Window.h"
-#include "../Render/Renderer.h"
+#include "Render/Renderer.h"
 
 namespace Blue
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Core/Type.h"
+#include "Core/Type.h"
 
 // DirectX11 Çì´õ
 #include <d3d11.h>
@@ -44,20 +44,10 @@ namespace Blue
 		// ÀÎµ¦½º ¹öÆÛ (Á¤Á¡À» Á¶¸³ÇÒ ¶§ Á¤Á¡ÀÇ ¼ø¼­¸¦ Àü´Þ)
 		ID3D11Buffer* indexBuffer = nullptr;
 
-		// ½¦ÀÌ´õ °´Ã¼
-		//std::unique_ptr<class Shader> shader;
-
 		// »ï°¢Çü ¸Þ½Ã °´Ã¼
 		std::unique_ptr<class TriangleMesh> tMesh;
 
 		// »ç°¢Çü ¸Þ½Ã °´Ã¼
 		std::unique_ptr<class QuadMesh> qMesh;
-
-		//// ÀÔ·Â ·¹ÀÌ¾Æ¿ô
-		//ID3D11InputLayout* inputLayout = nullptr;
-
-		//// ½¦ÀÌ´õ °´Ã¼
-		//ID3D11VertexShader* vertexShader = nullptr;
-		//ID3D11PixelShader* pixelShader = nullptr;
 	};
 }

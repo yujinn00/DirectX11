@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Core/Type.h"
+#include "Core/Type.h"
 
 #include <string>
 

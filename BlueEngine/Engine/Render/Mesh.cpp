@@ -1,6 +1,6 @@
 #include "Mesh.h"
-#include "../Core/Engine.h"
-#include "../Shader/Shader.h"
+#include "Core/Engine.h"
+#include "Shader/Shader.h"
 
 namespace Blue
 {

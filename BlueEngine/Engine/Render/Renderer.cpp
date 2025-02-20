@@ -1,5 +1,5 @@
 #include "Renderer.h"
-#include "../Math/Vector3.h"
+#include "Math/Vector3.h"
 #include "TriangleMesh.h"
 #include "QuadMesh.h"
 
@@ -99,26 +99,26 @@ namespace Blue
 	void Renderer::Draw()
 	{
 		// 삼각형 쉐이더 객체 생성
-		if (tMesh == nullptr)
-		{
-			tMesh = std::make_unique<TriangleMesh>();
-		}
-
-		//// 사각형 쉐이더 객체 생성
-		//if (qMesh == nullptr)
+		//if (tMesh == nullptr)
 		//{
-		//	qMesh = std::make_unique<QuadMesh>();
+		//	tMesh = std::make_unique<TriangleMesh>();
 		//}
+
+		// 사각형 쉐이더 객체 생성
+		if (qMesh == nullptr)
+		{
+			qMesh = std::make_unique<QuadMesh>();
+		}
 
 		// 1. 지우기 (Clear) => BeginScene
 		float color[] = { 0.92f, 0.77f, 0.84f, 1.0f };
 		context->ClearRenderTargetView(renderTargetView, color);
 
 		// 2. 삼각형 드로우 (Draw)
-		tMesh->Draw();
+		//tMesh->Draw();
 
 		//// 2. 사각형 드로우 (Draw)
-		//qMesh->Draw();
+		qMesh->Draw();
 
 		// 3. 버퍼 교환 (Swap) => EndScene/Present
 		swapChain->Present(1u, 0u);

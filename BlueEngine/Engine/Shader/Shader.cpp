@@ -1,5 +1,5 @@
 #include "Shader.h"
-#include "../Core/Engine.h"
+#include "Core/Engine.h"
 
 #include <d3dcompiler.h>
 
@@ -10,27 +10,23 @@ namespace Blue
     {
 		// 경로 추가
 		wchar_t path[256] = { };
-		swprintf_s(path, 256, L"HLSLShader/%sVertexShader.hlsl", name.c_str());
-
-		// 버텍스 쉐이더 컴파일
-		auto result = D3DCompileFromFile(
-			path,
-			nullptr,
-			nullptr,
-			"main",
-			"vs_5_0",
-			0, 0,
-			&vertexShaderBuffer, nullptr
-		);
-
-		if (FAILED(result))
-		{
-			MessageBoxA(nullptr, "Failed to compile vertex shader", "Error", MB_OK);
-			__debugbreak();
-		}
+		swprintf_s(path, 256, L"../CompiledShader/%sVertexShader.cso", name.c_str());
 
 		// 장치 객체 얻어오기
 		ID3D11Device& device = Engine::Get().Device();
+
+		// CSO 로드
+		auto result = D3DReadFileToBlob(path, &vertexShaderBuffer);
+		if (FAILED(result))
+		{
+			MessageBoxA(
+				nullptr,
+				"Failed to read vertex shader object",
+				"Error",
+				MB_OK
+			);
+			__debugbreak();
+		}
 
 		// 버텍스 쉐이더 생성
 		result = device.CreateVertexShader(
@@ -51,7 +47,8 @@ namespace Blue
 		D3D11_INPUT_ELEMENT_DESC inputDesc[] =
 		{
 			{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-			{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 }
+			{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+			{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 }
 		};
 
 		result = device.CreateInputLayout(
@@ -68,21 +65,14 @@ namespace Blue
 			__debugbreak();
 		}
 
-		// 픽셀 쉐이더 컴파일
-		swprintf_s(path, 256, L"HLSLShader/%sPixelShader.hlsl", name.c_str());
-		result = D3DCompileFromFile(
-			path,
-			nullptr,
-			nullptr,
-			"main",
-			"ps_5_0",
-			0, 0,
-			&pixelShaderBuffer, nullptr
-		);
+		// CSO 로드
+		swprintf_s(path, 256, L"../CompiledShader/%sPixelShader.cso", name.c_str());
+
+		result = D3DReadFileToBlob(path, &pixelShaderBuffer);
 
 		if (FAILED(result))
 		{
-			MessageBoxA(nullptr, "Failed to compile pixel shader", "Error", MB_OK);
+			MessageBoxA(nullptr, "Failed to read pixel shader objer", "Error", MB_OK);
 			__debugbreak();
 		}
 
