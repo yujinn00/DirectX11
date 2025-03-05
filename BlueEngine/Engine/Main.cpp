@@ -1,7 +1,13 @@
 #include "Core/Engine.h"
+#include "Core/Common.h"
 #include "Math/Vector2.h"
+#include "Render/Texture.h"
+#include "Core/Common.h"
+#include "Shader/Shader.h"
+#include "Shader/TextureMappingShader.h"
 
 #include <iostream>
+#include <typeinfo>
 
 using namespace Blue;
 
@@ -20,12 +26,20 @@ using namespace Blue;
 //	return 0;
 //}
 
-#include "Render/Texture.h"
+template<typename T, typename std::enable_if<std::is_base_of<Shader, T>::value>::type* = nullptr>
+void TestClass()
+{
+	std::boolalpha(std::cout);
+	std::cout << typeid(T).name() << "\n";
+	std::cout << std::is_base_of<Shader, T>::value << "\n";
+}
 
 int main()
 {
-	// @Test: 텍스처 파일 로드 테스트
-	//Texture texture("T_coord.png");
+	//TestClass<TextureMappingShader>();
+	//TestClass<Engine>();
+
+	//ThrowIfFailed(E_FAIL, TEXT("Test"));
 
 	Engine engine(1280, 800, TEXT("Engine Demo"), GetModuleHandle(nullptr));
 	engine.Run();

@@ -22,6 +22,9 @@ namespace Blue
 		void Bind();
 		uint32 IndexCount() const { return (uint32)indices.size(); }
 
+		// 정점 데이터를 업데이트하는 함수.
+		void UpdateVertexBuffer(const std::vector<Vertex>& vertices);
+
 		// 정점 데이터
 		std::vector<Vertex> vertices;
 		uint32 stride = 0;
@@ -42,6 +45,7 @@ namespace Blue
 
 	protected:
 		std::vector<std::shared_ptr<MeshData>> meshes;
-		std::vector<std::shared_ptr<class Shader>> shaders;
+		//std::vector<std::shared_ptr<class Shader>> shaders;
+		std::vector<std::weak_ptr<class Shader>> shaders;
 	};
 }
