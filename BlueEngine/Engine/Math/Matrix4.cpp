@@ -190,9 +190,9 @@ namespace Blue
 	{
 		Vector3 result;
 
-		result.x = vector.x * matrix.m00 + vector.y * matrix.m10 + vector.z * matrix.m20;
-		result.y = vector.x * matrix.m01 + vector.y * matrix.m11 + vector.z * matrix.m21;
-		result.z = vector.x * matrix.m02 + vector.y * matrix.m12 + vector.z * matrix.m22;
+		result.x = vector.x * matrix.m00 + vector.y * matrix.m10 + vector.z * matrix.m20 + 1.0f * matrix.m30;
+		result.y = vector.x * matrix.m01 + vector.y * matrix.m11 + vector.z * matrix.m21 + 1.0f * matrix.m31;
+		result.z = vector.x * matrix.m02 + vector.y * matrix.m12 + vector.z * matrix.m22 + 1.0f * matrix.m32;
 
 		return result;
 	}

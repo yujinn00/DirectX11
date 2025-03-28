@@ -2,6 +2,7 @@
 
 #include "Vertex.h"
 #include "Core/Type.h"
+#include "Math/Transform.h"
 
 #include <vector>
 #include <memory>
@@ -43,8 +44,13 @@ namespace Blue
 
 		virtual void Draw();
 
+		// @Temp: 트랜스폼 정보(임시) -> Actor.
+		Transform transform;
+
 	protected:
-		std::vector<std::shared_ptr<MeshData>> meshes;
+		//std::vector<std::shared_ptr<MeshData>> meshes;
+		std::vector<std::weak_ptr<MeshData>> meshes;
+
 		//std::vector<std::shared_ptr<class Shader>> shaders;
 		std::vector<std::weak_ptr<class Shader>> shaders;
 	};

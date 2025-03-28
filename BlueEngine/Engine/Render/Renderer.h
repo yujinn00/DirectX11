@@ -44,10 +44,13 @@ namespace Blue
 		// 인덱스 버퍼 (정점을 조립할 때 정점의 순서를 전달)
 		ID3D11Buffer* indexBuffer = nullptr;
 
-		// 삼각형 메시 객체
-		std::unique_ptr<class TriangleMesh> tMesh;
+		// 사각형 메시 객체 1
+		std::unique_ptr<class QuadMesh> mesh1;
 
-		// 사각형 메시 객체
-		std::unique_ptr<class QuadMesh> qMesh;
+		// 사각형 메시 객체 2
+		std::unique_ptr<class QuadMesh> mesh2;
+
+		// 삼각형 메시 객체 3
+		std::unique_ptr<class TriangleMesh> mesh3;
 	};
 }
