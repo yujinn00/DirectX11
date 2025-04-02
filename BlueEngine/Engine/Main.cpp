@@ -1,13 +1,7 @@
 #include "Core/Engine.h"
-#include "Core/Common.h"
-#include "Math/Vector2.h"
-#include "Render/Texture.h"
-#include "Core/Common.h"
-#include "Shader/Shader.h"
-#include "Shader/TextureMappingShader.h"
+#include "Level/DemoLevel.h"
 
 #include <iostream>
-#include <typeinfo>
 
 using namespace Blue;
 
@@ -25,14 +19,6 @@ using namespace Blue;
 //
 //	return 0;
 //}
-
-template<typename T, typename std::enable_if<std::is_base_of<Shader, T>::value>::type* = nullptr>
-void TestClass()
-{
-	std::boolalpha(std::cout);
-	std::cout << typeid(T).name() << "\n";
-	std::cout << std::is_base_of<Shader, T>::value << "\n";
-}
 
 /*
 * Todo List.
@@ -66,5 +52,6 @@ void TestClass()
 int main()
 {
 	Engine engine(1280, 800, TEXT("Engine Demo"), GetModuleHandle(nullptr));
+	engine.SetLevel(std::make_shared<DemoLevel>());
 	engine.Run();
 }
