@@ -14,6 +14,7 @@ namespace Blue
 		Transform();
 		~Transform();
 
+		void Tick();
 		void Bind();
 
 	public:

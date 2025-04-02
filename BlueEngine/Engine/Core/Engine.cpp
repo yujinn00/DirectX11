@@ -110,6 +110,12 @@ namespace Blue
 		}
 	}
 
+	void Engine::SetLevel(std::shared_ptr<Level> newLevel)
+	{
+		// 메인 레벨 설정.
+		mainLevel = newLevel;
+	}
+
 	LRESULT Engine::WindowProc(HWND handle, UINT message, WPARAM wparam, LPARAM lparam)
 	{
 		// 메세지 처리
