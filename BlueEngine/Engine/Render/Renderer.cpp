@@ -3,6 +3,7 @@
 #include "TriangleMesh.h"
 #include "QuadMesh.h"
 #include "Core/Common.h"
+#include "Level/Level.h"
 
 #include <vector>
 #include <d3dcompiler.h>
@@ -113,7 +114,7 @@ namespace Blue
 	{
 	}
 
-	void Renderer::Draw()
+	void Renderer::Draw(std::shared_ptr<Level> level)
 	{
 		// »ï»ç°¢Çü ½¦ÀÌ´õ °´Ã¼ »ý¼º
 		if (mesh1 == nullptr)
