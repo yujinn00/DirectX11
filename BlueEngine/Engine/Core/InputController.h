@@ -59,7 +59,10 @@ namespace Blue
         bool IsButtonDown(unsigned int button);
         bool IsButtonUp(unsigned int button);
         bool IsButton(unsigned int button);
- 
+
+        // 입력 정리 함수.
+        void ResetInputs();
+
         Vector2 GetMousePosition();
         float GetMouseDeltaX(); // 이전 프레임 대비 이동한 거리(X).
         float GetMouseDeltaY(); // 이전 프레임 대비 이동한 거리(Y).

@@ -7,7 +7,7 @@
 
 namespace Blue
 {
-	// 윈도우 클래스
+	// 윈도우 클래스.
 	class Window
 	{
 	public:
@@ -18,6 +18,7 @@ namespace Blue
 		inline const uint32 Width() const { return width; }
 		inline const uint32 Height() const { return height; }
 		inline HWND Handle() const { return handle; }
+		std::wstring Title() const { return title; }
 
 		// Setter.
 		void SetWidthHeight(uint32 width, uint32 height);
