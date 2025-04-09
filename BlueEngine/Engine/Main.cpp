@@ -5,7 +5,7 @@
 
 using namespace Blue;
 
-// Ã¢ ¸ðµå·Î ÇÒ ¶§ ¸ÞÀÎ ÇÔ¼ö (Entry Point)
+// ì°½ ëª¨ë“œë¡œ í•  ë•Œ ë©”ì¸ í•¨ìˆ˜ (Entry Point).
 //int WINAPI WinMain(
 //	_In_ HINSTANCE hInstance,
 //	_In_opt_ HINSTANCE hPrevInstance,
@@ -13,7 +13,7 @@ using namespace Blue;
 //	_In_ int nShowCmd
 //)
 //{
-//	// ¿£Áø »ý¼º ¹× ½ÇÇà
+//	// ì—”ì§„ ìƒì„± ë° ì‹¤í–‰.
 //	Engine engine(1280, 800, TEXT("Engine Demo"), hInstance);
 //	engine.Run();
 //
@@ -43,10 +43,10 @@ using namespace Blue;
 */
 
 /*
-* IA(ÀÔ·Â Á¤¸®) -> VS ...(Option) -> RS/º¸°£±â -> PS -> OM(Ãâ·Â Á¶¸³).
-* - VS (Á¤Á¡ º¯È¯ Object->World->View->Projection).
-* - PS (Á¶¸í Ã³¸®) - PBR / µðÇ»Áî / ½ºÆäÅ§·¯.
-* - ¿£Áø °³¹ßÀÚ (·»´õ·¯(Renderer) - °³¹ßÀÚ).
+* IA(ìž…ë ¥ ì •ë¦¬) -> VS ...(Option) -> RS/ë³´ê°„ê¸° -> PS -> OM(ì¶œë ¥ ì¡°ë¦½).
+* - VS (ì •ì  ë³€í™˜ Object->World->View->Projection).
+* - PS (ì¡°ëª… ì²˜ë¦¬) - PBR / ë””í“¨ì¦ˆ / ìŠ¤íŽ˜í˜ëŸ¬.
+* - ì—”ì§„ ê°œë°œìž (ë Œë”ëŸ¬(Renderer) - ê°œë°œìž).
 */
 
 int main()

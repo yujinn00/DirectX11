@@ -8,14 +8,14 @@ namespace Blue
     Shader::Shader(const std::wstring& name)
         : name(name)
     {
-		// °æ·Î Ãß°¡
+		// ê²½ë¡œ ì¶”ê°€.
 		wchar_t path[256] = { };
 		swprintf_s(path, 256, L"../CompiledShader/%sVertexShader.cso", name.c_str());
 
-		// ÀåÄ¡ °´Ã¼ ¾ò¾î¿À±â
+		// ì¥ì¹˜ ê°ì²´ ì–»ì–´ì˜¤ê¸°.
 		ID3D11Device& device = Engine::Get().Device();
 
-		// CSO ·Îµå
+		// CSO ë¡œë“œ.
 		auto result = D3DReadFileToBlob(path, &vertexShaderBuffer);
 		if (FAILED(result))
 		{
@@ -28,7 +28,7 @@ namespace Blue
 			__debugbreak();
 		}
 
-		// ¹öÅØ½º ½¦ÀÌ´õ »ı¼º
+		// ë²„í…ìŠ¤ ì‰ì´ë” ìƒì„±.
 		result = device.CreateVertexShader(
 			vertexShaderBuffer->GetBufferPointer(),
 			vertexShaderBuffer->GetBufferSize(),
@@ -42,8 +42,8 @@ namespace Blue
 			__debugbreak();
 		}
 
-		// ÀÔ·Â ·¹ÀÌ¾Æ¿ô
-		// Á¤Á¡ ½¦ÀÌ´õ¿¡ Àü´ŞÇÒ Á¤Á¡ µ¥ÀÌÅÍ°¡ ¾î¶»°Ô »ı°å´ÂÁö ¾Ë·ÁÁÜ
+		// ì…ë ¥ ë ˆì´ì•„ì›ƒ.
+		// ì •ì  ì‰ì´ë”ì— ì „ë‹¬í•  ì •ì  ë°ì´í„°ê°€ ì–´ë–»ê²Œ ìƒê²¼ëŠ”ì§€ ì•Œë ¤ì¤Œ.
 		D3D11_INPUT_ELEMENT_DESC inputDesc[] =
 		{
 			{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
@@ -65,7 +65,7 @@ namespace Blue
 			__debugbreak();
 		}
 
-		// CSO ·Îµå
+		// CSO ë¡œë“œ.
 		swprintf_s(path, 256, L"../CompiledShader/%sPixelShader.cso", name.c_str());
 
 		result = D3DReadFileToBlob(path, &pixelShaderBuffer);
@@ -76,7 +76,7 @@ namespace Blue
 			__debugbreak();
 		}
 
-		// ÇÈ¼¿ ½¦ÀÌ´õ »ı¼º
+		// í”½ì…€ ì‰ì´ë” ìƒì„±.
 		result = device.CreatePixelShader(
 			pixelShaderBuffer->GetBufferPointer(),
 			pixelShaderBuffer->GetBufferSize(),
@@ -93,7 +93,7 @@ namespace Blue
 
     Shader::~Shader()
     {
-        // DX ¸®¼Ò¼Ò ÇØÁ¦
+        // DX ë¦¬ì†Œì†Œ í•´ì œ.
         if (inputLayout)
         {
             inputLayout->Release();
@@ -122,16 +122,16 @@ namespace Blue
 
     void Shader::Bind()
     {
-		// Device Context ¾ò¾î¿À±â
+		// Device Context ì–»ì–´ì˜¤ê¸°.
 		static ID3D11DeviceContext& context = Engine::Get().Context();
 		
-		// ÀÔ·Â ·¹ÀÌ¾Æ¿ô Àü´Ş
+		// ì…ë ¥ ë ˆì´ì•„ì›ƒ ì „ë‹¬.
 		context.IASetInputLayout(inputLayout);
 
-		// Á¶¸³ÇÒ ¸ğ¾ç ¼³Á¤
+		// ì¡°ë¦½í•  ëª¨ì–‘ ì„¤ì •.
 		context.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-		// ½¦ÀÌ´õ ¼³Á¤
+		// ì‰ì´ë” ì„¤ì •.
 		context.VSSetShader(vertexShader, nullptr, 0);
 		context.PSSetShader(pixelShader, nullptr, 0);
     }

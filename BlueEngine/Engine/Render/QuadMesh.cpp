@@ -13,27 +13,27 @@ namespace Blue
 {
 	QuadMesh::QuadMesh()
 	{
-		// Á¤Á¡ ¹è¿­
+		// ì •ì  ë°°ì—´.
 		std::vector<Vertex> vertices =
 		{
-			// Vector(À§Ä¡, »ö»ó, Á¤Á¡ ±âÁØ ÅØ½ºÃ³ ÁÂÇ¥)
-			Vertex(Vector3(-0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 0.0f)), // ÁÂÃø »ó´Ü
-			Vertex(Vector3(0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 0.0f)), // ¿ìÃø »ó´Ü
-			Vertex(Vector3(0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 1.0f)), // ¿ìÃø ÇÏ´Ü
-			Vertex(Vector3(-0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 1.0f)), // ÁÂÃø ÇÏ´Ü
+			// Vector(ìœ„ì¹˜, ìƒ‰ìƒ, ì •ì  ê¸°ì¤€ í…ìŠ¤ì²˜ ì¢Œí‘œ).
+			Vertex(Vector3(-0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 0.0f)), // ì¢Œì¸¡ ìƒë‹¨
+			Vertex(Vector3(0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 0.0f)), // ìš°ì¸¡ ìƒë‹¨
+			Vertex(Vector3(0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 1.0f)), // ìš°ì¸¡ í•˜ë‹¨
+			Vertex(Vector3(-0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 1.0f)), // ì¢Œì¸¡ í•˜ë‹¨
 		};
 
-		// ÀÎµ¦½º ¹è¿­
+		// ì¸ë±ìŠ¤ ë°°ì—´.
 		std::vector<uint32> indices = { 0, 1, 3, 1, 2, 3 };
 
-		//// º¯È¯.
+		//// ë³€í™˜.
 		//vertices[0].position = vertices[0].position * Matrix4::Scale(0.5f);
 		//vertices[1].position = vertices[1].position * Matrix4::Scale(0.5f);
 		//vertices[2].position = vertices[2].position * Matrix4::Scale(0.5f);
 		//vertices[3].position = vertices[3].position * Matrix4::Scale(0.5f);
 
 		//meshes.emplace_back(std::make_shared<MeshData>(vertices, indices));
-		// ¸ğµ¨ ·Îµå.
+		// ëª¨ë¸ ë¡œë“œ.
 		std::weak_ptr<MeshData> mesh;
 		if (ModelLoader::Get().Load("quad.obj", mesh));
 		{
@@ -50,11 +50,11 @@ namespace Blue
 
 	void QuadMesh::Update(float deltaTime)
 	{
-		//// È¸Àü Ã³¸®.
+		//// íšŒì „ ì²˜ë¦¬.
 		//static float angle = 0.0f;
 		//angle += 30.0f * deltaTime;
 
-		//// È¸Àü Àû¿ë.
+		//// íšŒì „ ì ìš©.
 		//transform.rotation.z = angle;
 
 		////Rotate(angle);
@@ -62,14 +62,14 @@ namespace Blue
 
 	void QuadMesh::Rotate(float angle)
 	{
-		// Á¤Á¡ ¹è¿­
+		// ì •ì  ë°°ì—´.
 		std::vector<Vertex> vertices =
 		{
-			// Vector(À§Ä¡, »ö»ó, Á¤Á¡ ±âÁØ ÅØ½ºÃ³ ÁÂÇ¥)
-			Vertex(Vector3(-0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 0.0f)), // ÁÂÃø »ó´Ü
-			Vertex(Vector3(0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 0.0f)), // ¿ìÃø »ó´Ü
-			Vertex(Vector3(0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 1.0f)), // ¿ìÃø ÇÏ´Ü
-			Vertex(Vector3(-0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 1.0f)), // ÁÂÃø ÇÏ´Ü
+			// Vector(ìœ„ì¹˜, ìƒ‰ìƒ, ì •ì  ê¸°ì¤€ í…ìŠ¤ì²˜ ì¢Œí‘œ).
+			Vertex(Vector3(-0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 0.0f)), // ì¢Œì¸¡ ìƒë‹¨
+			Vertex(Vector3(0.5f, 0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 0.0f)), // ìš°ì¸¡ ìƒë‹¨
+			Vertex(Vector3(0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(1.0f, 1.0f)), // ìš°ì¸¡ í•˜ë‹¨
+			Vertex(Vector3(-0.5f, -0.5f, 0.5f), Vector3(1.0f, 1.0f, 1.0f), Vector2(0.0f, 1.0f)), // ì¢Œì¸¡ í•˜ë‹¨
 		};
 
 		static std::vector<Vertex> result;
@@ -80,14 +80,14 @@ namespace Blue
 			result.assign(vertices.begin(), vertices.end());
 		}
 
-		// È¸Àü.
+		// íšŒì „.
 		Matrix4 rotation = Matrix4::RotationZ(angle);
 		result[0].position = vertices[0].position * rotation;
 		result[1].position = vertices[1].position * rotation;
 		result[2].position = vertices[2].position * rotation;
 		result[3].position = vertices[3].position * rotation;
 
-		// ¸Ş½ÃÀÇ Á¤Á¡ ¹öÆÛ ¾÷µ¥ÀÌÆ®.
+		// ë©”ì‹œì˜ ì •ì  ë²„í¼ ì—…ë°ì´íŠ¸.
 		meshes[0].lock()->UpdateVertexBuffer(result);
 	}
 }

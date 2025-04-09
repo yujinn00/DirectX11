@@ -11,29 +11,29 @@
 
 namespace Blue
 {
-	// ½Ì±ÛÅæ °´Ã¼ ¼³Á¤
+	// ì‹±ê¸€í†¤ ê°ì²´ ì„¤ì •
 	Engine* Engine::instance = nullptr;
 
 	Engine::Engine(uint32 width, uint32 height, const std::wstring& title, HINSTANCE hInstance)
 	{
-		// ½Ì±ÛÅæ °´Ã¼ °ª ¼³Á¤
+		// ì‹±ê¸€í†¤ ê°ì²´ ê°’ ì„¤ì •
 		instance = this;
 
-		// Ã¢ °´Ã¼ »ı¼º
+		// ì°½ ê°ì²´ ìƒì„±
 		window = std::make_shared<Window>(
 			width, height, title, hInstance, WindowProc
 		);
 
-		// ¼ÎÀÌ´õ ·Î´õ °´Ã¼ »ı¼º.
+		// ì…°ì´ë” ë¡œë” ê°ì²´ ìƒì„±.
 		shaderLoader = std::make_unique<ShaderLoader>();
 
-		// ÅØ½ºÃ³ ·Î´õ °´Ã¼ »ı¼º.
+		// í…ìŠ¤ì²˜ ë¡œë” ê°ì²´ ìƒì„±.
 		textureLoader = std::make_unique<TextureLoader>();
 
-		// ¸ğµ¨ ·Î´õ °´Ã¼ »ı¼º.
+		// ëª¨ë¸ ë¡œë” ê°ì²´ ìƒì„±.
 		modelLoader = std::make_unique<ModelLoader>();
 
-		// ·»´õ·¯ »ı¼º
+		// ë Œë”ëŸ¬ ìƒì„±
 		renderer = std::make_shared<Renderer>(
 			width, height, window->Handle()
 		);
@@ -45,57 +45,57 @@ namespace Blue
 
 	void Engine::Run()
 	{
-		// Å¸ÀÌ¸Ó (Æ½/µ¨Å¸Å¸ÀÓ).
+		// íƒ€ì´ë¨¸ (í‹±/ë¸íƒ€íƒ€ì„).
 		LARGE_INTEGER currentTime;
 		LARGE_INTEGER previousTime;
 		LARGE_INTEGER frequency;
 
-		// ÇÏµå¿ş¾î Å¸ÀÌ¸ÓÀÇ ÇØ»óµµ °ª(±âÁØ ´ÜÀ§).
+		// í•˜ë“œì›¨ì–´ íƒ€ì´ë¨¸ì˜ í•´ìƒë„ ê°’(ê¸°ì¤€ ë‹¨ìœ„).
 		QueryPerformanceFrequency(&frequency);
 
-		// ÇöÀç ½Ã°£.
+		// í˜„ì¬ ì‹œê°„.
 		QueryPerformanceCounter(&currentTime);
 		previousTime = currentTime;
 
-		// ÇÁ·¹ÀÓ °è»ê¿¡ »ç¿ëÇÒ º¯¼ö.
+		// í”„ë ˆì„ ê³„ì‚°ì— ì‚¬ìš©í•  ë³€ìˆ˜.
 		float targetFrameRate = 120.0f;
-		// °íÁ¤ ÇÁ·¹ÀÓ ¼Óµµ¸¦ »ç¿ëÇÏ±â À§ÇÑ º¯¼ö.
+		// ê³ ì • í”„ë ˆì„ ì†ë„ë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ë³€ìˆ˜.
 		float oneFrameTime = 1.0f / targetFrameRate;
 
-		// ¸Ş¼¼Áö Ã³¸® ·çÇÁ
+		// ë©”ì„¸ì§€ ì²˜ë¦¬ ë£¨í”„.
 		MSG msg = { };
 		//while (msg.message != WM_DESTROY)
 		while (msg.message != WM_QUIT)
 		{
-			// Ã¢¿¡ ¸Ş¼¼Áö°¡ µé¾î¿Ã ¶§ ½ÇÇà
+			// ì°½ì— ë©”ì„¸ì§€ê°€ ë“¤ì–´ì˜¬ ë•Œ ì‹¤í–‰.
 			if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 			{
-				// ¸Ş¼¼Áö ¹ø¿ª
+				// ë©”ì„¸ì§€ ë²ˆì—­.
 				TranslateMessage(&msg);
 
-				// ¸Ş¼¼Áö Àü´Ş
+				// ë©”ì„¸ì§€ ì „ë‹¬.
 				DispatchMessage(&msg);
 			}
-			// Ã¢¿¡ ¸Ş¼¼Áö°¡ ¾øÀ» ¶§ ´Ù¸¥ ÀÛ¾÷ Ã³¸®
+			// ì°½ì— ë©”ì„¸ì§€ê°€ ì—†ì„ ë•Œ ë‹¤ë¥¸ ì‘ì—… ì²˜ë¦¬.
 			else
 			{
-				// ÇöÀç ½Ã°£ °¡Á®¿À±â.
+				// í˜„ì¬ ì‹œê°„ ê°€ì ¸ì˜¤ê¸°.
 				QueryPerformanceCounter(&currentTime);
 
-				// ÇÁ·¹ÀÓ ½Ã°£ °è»ê.
+				// í”„ë ˆì„ ì‹œê°„ ê³„ì‚°.
 				float deltaTime = (float)(currentTime.QuadPart - previousTime.QuadPart)
 					/ (float)frequency.QuadPart;
 
-				// ÇÁ·¹ÀÓ Á¦ÇÑ.
+				// í”„ë ˆì„ ì œí•œ.
 				if (deltaTime >= oneFrameTime)
 				{
-					// Ãâ·Â.
+					// ì¶œë ¥.
 					std::cout << "DeltaTime: " << deltaTime
 						<< " | OneFrameTime: " << oneFrameTime
 						<< " | FPS: " << (int)ceil(1.0f / deltaTime) << "\n";
 
-					// ¿£Áø ·çÇÁ.
-					// ·¹º§ Ã³¸®.
+					// ì—”ì§„ ë£¨í”„.
+					// ë ˆë²¨ ì²˜ë¦¬.
 					if (mainLevel)
 					{
 						mainLevel->BeginPlay();
@@ -103,7 +103,7 @@ namespace Blue
 						renderer->Draw(mainLevel);
 					}
 
-					// ÇÁ·¹ÀÓ ½Ã°£ ¾÷µ¥ÀÌÆ®.
+					// í”„ë ˆì„ ì‹œê°„ ì—…ë°ì´íŠ¸.
 					previousTime = currentTime;
 				}
 			}
@@ -112,23 +112,23 @@ namespace Blue
 
 	void Engine::SetLevel(std::shared_ptr<Level> newLevel)
 	{
-		// ¸ŞÀÎ ·¹º§ ¼³Á¤.
+		// ë©”ì¸ ë ˆë²¨ ì„¤ì •.
 		mainLevel = newLevel;
 	}
 
 	LRESULT Engine::WindowProc(HWND handle, UINT message, WPARAM wparam, LPARAM lparam)
 	{
-		// ¸Ş¼¼Áö Ã³¸®
+		// ë©”ì„¸ì§€ ì²˜ë¦¬.
 		switch (message)
 		{
-			// Ã¢ÀÌ »èÁ¦µÇ¸é ½ÇÇàµÊ
+			// ì°½ì´ ì‚­ì œë˜ë©´ ì‹¤í–‰ë¨.
 		case WM_DESTROY:
-			// ÇÁ·Î±×·¥ Á¾·á ¸Ş¼¼Áö ¹ßÇà
+			// í”„ë¡œê·¸ë¨ ì¢…ë£Œ ë©”ì„¸ì§€ ë°œí–‰.
 			PostQuitMessage(0);
 			return 0;
 		}
 
-		// ±âº» ¸Ş¼¼Áö Ã³¸®
+		// ê¸°ë³¸ ë©”ì„¸ì§€ ì²˜ë¦¬.
 		return DefWindowProc(handle, message, wparam, lparam);
 	}
 

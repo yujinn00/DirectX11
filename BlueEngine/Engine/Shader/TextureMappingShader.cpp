@@ -12,7 +12,7 @@ namespace Blue
 	TextureMappingShader::TextureMappingShader(const std::string& textureName)
 		: Shader(L"TextureMapping")
 	{
-		// ÅØ½ºÃ³ »ı¼º
+		// í…ìŠ¤ì²˜ ìƒì„±.
 		//texture = std::make_unique<Texture>(textureName);
 		TextureLoader::Get().Load(textureName, texture);
 	}

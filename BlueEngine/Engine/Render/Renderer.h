@@ -2,39 +2,39 @@
 
 #include "Core/Type.h"
 
-// DirectX11 Çì´õ
+// DirectX11 í—¤ë”.
 #include <d3d11.h>
 #include <dxgi.h>
 #include <memory>
 
 namespace Blue
 {
-	// ±×·¡ÇÈ Ä«µå¿¡¼­ Ã³¸®ÇÏ´Â ÀÏ/¸®¼Ò½º¸¦ °ü¸®ÇÏ´Â Å¬·¡½º
-	// RHI - Render Hardware Interface
+	// ê·¸ë˜í”½ ì¹´ë“œì—ì„œ ì²˜ë¦¬í•˜ëŠ” ì¼/ë¦¬ì†ŒìŠ¤ë¥¼ ê´€ë¦¬í•˜ëŠ” í´ë˜ìŠ¤.
+	// RHI - Render Hardware Interface.
 	class Renderer
 	{
-		// ¿£Áø Å¬·¡½º friend ¼±¾ğ
-		// ´Ã ´ç¿¬ÇÏÁö¸¸ friend º¸´Ü °ÔÅÍ ¹× ¼¼ÅÍ°¡ ±ÇÀåµÊ
+		// ì—”ì§„ í´ë˜ìŠ¤ friend ì„ ì–¸.
+		// ëŠ˜ ë‹¹ì—°í•˜ì§€ë§Œ friend ë³´ë‹¨ ê²Œí„° ë° ì„¸í„°ê°€ ê¶Œì¥ë¨.
 		friend class Engine;
 
 	public:
 		Renderer(uint32 width, uint32 height, HWND window);
 		~Renderer();
 
-		// ±×¸®±â ÇÔ¼ö
+		// ê·¸ë¦¬ê¸° í•¨ìˆ˜.
 		void Draw(std::shared_ptr<class Level> level);
 
 	private:
-		// ¸®¼Ò½º
-		// ÀåÄ¡·ù
+		// ë¦¬ì†ŒìŠ¤.
+		// ì¥ì¹˜ë¥˜.
 		ID3D11Device* device = nullptr;
 		ID3D11DeviceContext* context = nullptr;
-		IDXGISwapChain* swapChain = nullptr; // Ãâ·ÂÇÒ ¶§ ¹öÆÛ¸¦ ½º¿ÒÇÏ´Â Ã¼ÀÎ
+		IDXGISwapChain* swapChain = nullptr; // ì¶œë ¥í•  ë•Œ ë²„í¼ë¥¼ ìŠ¤ì™‘í•˜ëŠ” ì²´ì¸.
 
-		// ¹öÆÛ
+		// ë²„í¼.
 		ID3D11RenderTargetView* renderTargetView = nullptr;
 		
-		// ºäÆ÷Æ®
+		// ë·°í¬íŠ¸.
 		D3D11_VIEWPORT viewport;
 	};
 }

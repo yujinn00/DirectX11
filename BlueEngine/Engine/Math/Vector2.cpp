@@ -5,19 +5,19 @@
 #include <cassert>
 
 /*
-·¹Àüµå »óÈ² ¹ß»ý => ¾Æ·¡ ÇÊ±â¸¦ Çß´Âµ¥,
-ÀÌ°Ô ¿Ö °©ÀÚ±â ³ª¿Ô´ÂÁö ÀüÇô ¸ð¸§ ¤»¤¾
-Q) tan ¿Ö ¾²³Ä ?
-A) sin cosµµ µÇ±ä µÇ´Âµ¥
-tanÀÌ ´õ È¿À²ÀûÀÓ
-ÀÌÀ¯´Â Àß ¸ð¸§ ¤»¤¾
-tan Ä¡¸íÀûÀÎ ´ÜÁ¡: Æ¯Á¤ ºÎºÐ¿¡ ¹«ÇÑ´ë·Î »¸À½
-±×·¡¼­ ±× ºÎºÐ¿¡ °ªÀÌ µé¾î°¡¸é ÇØ¸¦ ¸ø ±¸ÇÔ
-ÀÌ°É ÇØ°áÇÏ´Â ¹æ¹ý: ¾ÆÅ©ÅºÁ¨Æ®2
-¹«ÇÑ´ë·Î »¸´Â ÅºÁ¨Æ®¸¦ ÆòÇà ÀÌµ¿½ÃÄÑ¼­
-°¢µµ¸¸ ±¸ÇÏ´Â ¹æ¹ýÀÓ
-Q) ºÎµ¿ ¼Ò¼ö°¡ ¾î¶»°Ô ÀúÀåµÇ´Â°¡ ?
-A) ¸ð¸§ ¤»¤¾
+ë ˆì „ë“œ ìƒí™© ë°œìƒ => ì•„ëž˜ í•„ê¸°ë¥¼ í–ˆëŠ”ë°,
+ì´ê²Œ ì™œ ê°‘ìžê¸° ë‚˜ì™”ëŠ”ì§€ ì „í˜€ ëª¨ë¦„ ã…‹ã…Ž
+Q) tan ì™œ ì“°ëƒ ?
+A) sin cosë„ ë˜ê¸´ ë˜ëŠ”ë°
+tanì´ ë” íš¨ìœ¨ì ìž„
+ì´ìœ ëŠ” ìž˜ ëª¨ë¦„ ã…‹ã…Ž
+tan ì¹˜ëª…ì ì¸ ë‹¨ì : íŠ¹ì • ë¶€ë¶„ì— ë¬´í•œëŒ€ë¡œ ë»—ìŒ
+ê·¸ëž˜ì„œ ê·¸ ë¶€ë¶„ì— ê°’ì´ ë“¤ì–´ê°€ë©´ í•´ë¥¼ ëª» êµ¬í•¨
+ì´ê±¸ í•´ê²°í•˜ëŠ” ë°©ë²•: ì•„í¬íƒ„ì  íŠ¸2
+ë¬´í•œëŒ€ë¡œ ë»—ëŠ” íƒ„ì  íŠ¸ë¥¼ í‰í–‰ ì´ë™ì‹œì¼œì„œ
+ê°ë„ë§Œ êµ¬í•˜ëŠ” ë°©ë²•ìž„
+Q) ë¶€ë™ ì†Œìˆ˜ê°€ ì–´ë–»ê²Œ ì €ìž¥ë˜ëŠ”ê°€ ?
+A) ëª¨ë¦„ ã…‹ã…Ž
 */
 
 namespace Blue
@@ -74,7 +74,7 @@ namespace Blue
 
 	Vector2 Lerp(const Vector2& from, const Vector2& to, float t)
 	{
-		// t °¡µÎ±â
+		// t ê°€ë‘ê¸°.
 		if (t < 0.0f)
 		{
 			t = 0.0f;
@@ -121,7 +121,7 @@ namespace Blue
 
 	Vector2& Vector2::operator/=(float scale)
 	{
-		// ³ª´­ °ªÀÌ 0ÀÌ ¾Æ´ÑÁö È®ÀÎÇÏ´Â °ÍÀÌ ÁÁÀ½
+		// ë‚˜ëˆŒ ê°’ì´ 0ì´ ì•„ë‹Œì§€ í™•ì¸í•˜ëŠ” ê²ƒì´ ì¢‹ìŒ.
 		assert(scale != 0.0f);
 
 		x /= scale;

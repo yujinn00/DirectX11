@@ -3,11 +3,11 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include "Math/Transform.h" // ¼³°è ½Ã °í·Á »çÇ×.
+#include "Math/Transform.h" // ì„¤ê³„ ì‹œ ê³ ë ¤ ì‚¬í•­.
 
 namespace Blue
 {
-    // ¼³°è ½Ã °í·Á »çÇ× (DDD).
+    // ì„¤ê³„ ì‹œ ê³ ë ¤ ì‚¬í•­ (DDD).
     class Actor
     {
         friend class Renderer;
@@ -23,27 +23,27 @@ namespace Blue
 
         void Destroy();
 
-        // ÄÄÆ÷³ÍÆ® Ãß°¡ ÇÔ¼ö.
+        // ì»´í¬ë„ŒíŠ¸ ì¶”ê°€ í•¨ìˆ˜.
         void AddComponent(std::shared_ptr<class Component> newComponent);
 
         const bool IsActive() const;
         const bool HasInitialized() const;
 
     public:
-        // ¾×ÅÍÀÇ TRS Á¤º¸¸¦ °ü¸®ÇÏ´Â Æ®·£½ºÆû.
+        // ì•¡í„°ì˜ TRS ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” íŠ¸ëœìŠ¤í¼.
         Transform transform;
 
     protected:
-        // ¾×ÅÍÀÇ ÀÌ¸§ (ÀÏ¹İÀûÀ¸·Î´Â Hash·Î º¯È¯ÇØ¼­ »ç¿ë).
+        // ì•¡í„°ì˜ ì´ë¦„ (ì¼ë°˜ì ìœ¼ë¡œëŠ” Hashë¡œ ë³€í™˜í•´ì„œ ì‚¬ìš©).
         std::wstring name = TEXT("Actor");
-        // ¾×ÅÍÀÇ ÃÊ±âÈ­ ¿©ºÎ.
+        // ì•¡í„°ì˜ ì´ˆê¸°í™” ì—¬ë¶€.
         bool hasInitialized = false;
-        // ¾×ÅÍÀÇ È°¼ºÈ­ ¿©ºÎ.
+        // ì•¡í„°ì˜ í™œì„±í™” ì—¬ë¶€.
         bool isActive = true;
-        // »èÁ¦ ¿©ºÎ.
+        // ì‚­ì œ ì—¬ë¶€.
         bool hasDestroyed = false;
 
-        // ÄÄÆ÷³ÍÆ® ¹è¿­.
+        // ì»´í¬ë„ŒíŠ¸ ë°°ì—´.
         std::vector<std::shared_ptr<class Component>> components;
     };
 }

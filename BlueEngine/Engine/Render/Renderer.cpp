@@ -14,21 +14,21 @@ namespace Blue
 {
 	Renderer::Renderer(uint32 width, uint32 height, HWND window)
 	{
-		// ÀåÄ¡ »ı¼º¿¡ »ç¿ëÇÏ´Â ¿É¼Ç
+		// ì¥ì¹˜ ìƒì„±ì— ì‚¬ìš©í•˜ëŠ” ì˜µì…˜.
 		uint32 flag = 0u;
 
 #if _DEBUG
 		flag |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
 
-		// »ı¼ºÇÒ ¶óÀÌºê·¯¸® ¹öÀü
+		// ìƒì„±í•  ë¼ì´ë¸ŒëŸ¬ë¦¬ ë²„ì „.
 		D3D_FEATURE_LEVEL featureLevels[] =
 		{
 			D3D_FEATURE_LEVEL_11_1,
 			D3D_FEATURE_LEVEL_11_0,
 		};
 
-		// ÀåÄ¡ »ı¼º.
+		// ì¥ì¹˜ ìƒì„±.
 		ThrowIfFailed(D3D11CreateDevice(
 			nullptr,
 			D3D_DRIVER_TYPE_HARDWARE,
@@ -42,27 +42,27 @@ namespace Blue
 			&context
 		), TEXT("Failed to create devices."));
 
-		// IDXGIFactory ¸®¼Ò½º »ı¼º.
+		// IDXGIFactory ë¦¬ì†ŒìŠ¤ ìƒì„±.
 		IDXGIFactory* factory = nullptr;
 		//CreateDXGIFactory(__uuidof(factory), reinterpret_cast<void**>(&factory));
 		ThrowIfFailed(CreateDXGIFactory(
 			IID_PPV_ARGS(&factory)
 		), TEXT("Failed to create dxgifactory."));
 
-		// ½º¿Ò Ã¼ÀÎ Á¤º¸ ±¸Á¶Ã¼
+		// ìŠ¤ì™‘ ì²´ì¸ ì •ë³´ êµ¬ì¡°ì²´.
 		DXGI_SWAP_CHAIN_DESC swapChainDesc = { };
-		swapChainDesc.Windowed = true; // Ã¢ ¸ğµå
+		swapChainDesc.Windowed = true; // ì°½ ëª¨ë“œ.
 		swapChainDesc.OutputWindow = window;
 		swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-		swapChainDesc.BufferCount = 2; // ¹é ¹öÆÛ °³¼ö
-		swapChainDesc.SampleDesc.Count = 1; // ¸ÖÆ¼ »ùÇÃ¸µ °³¼ö
-		swapChainDesc.SampleDesc.Quality = 0; // ¸ÖÆ¼ »ùÇÃ¸µ ¼öÁØ (Quality = Count - 1)
+		swapChainDesc.BufferCount = 2; // ë°± ë²„í¼ ê°œìˆ˜.
+		swapChainDesc.SampleDesc.Count = 1; // ë©€í‹° ìƒ˜í”Œë§ ê°œìˆ˜.
+		swapChainDesc.SampleDesc.Quality = 0; // ë©€í‹° ìƒ˜í”Œë§ ìˆ˜ì¤€ (Quality = Count - 1).
 		swapChainDesc.BufferDesc.Width = width;
 		swapChainDesc.BufferDesc.Height = height;
 		swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 		swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
 
-		//// ÀåÄ¡ »ı¼º
+		//// ì¥ì¹˜ ìƒì„±
 		//ThrowIfFailed(D3D11CreateDeviceAndSwapChain(
 		//	nullptr,
 		//	D3D_DRIVER_TYPE_HARDWARE,
@@ -78,14 +78,14 @@ namespace Blue
 		//	&context
 		//), TEXT("Failed to create devices"));
 
-		// SwapChain »ı¼º.
+		// SwapChain ìƒì„±.
 		ThrowIfFailed(factory->CreateSwapChain(
 			device,
 			&swapChainDesc,
 			&swapChain
 		), TEXT("Failed to create a swap chain."));
 
-		// ·»´õ Å¸°Ù ºä »ı¼º
+		// ë Œë” íƒ€ê²Ÿ ë·° ìƒì„±.
 		ID3D11Texture2D* backbuffer = nullptr;
 		//swapChain->GetBuffer(0, __uuidof(backbuffer), reinterpret_cast<void**>(&backbuffer));
 
@@ -97,10 +97,14 @@ namespace Blue
 			backbuffer, nullptr, &renderTargetView
 		), TEXT("Failed to create render target view."));
 
-		// ·»´õ Å¸°Ù ºä ¹ÙÀÎµù (¿¬°á)
+		// ì‚¬ìš©í•œ ë¦¬ì†ŒìŠ¤ í•´ì œ.
+		backbuffer->Release();
+		backbuffer = nullptr;
+
+		// ë Œë” íƒ€ê²Ÿ ë·° ë°”ì¸ë”© (ì—°ê²°).
 		context->OMSetRenderTargets(1, &renderTargetView, nullptr);
 
-		// ºäÆ÷Æ® (È­¸é)
+		// ë·°í¬íŠ¸ (í™”ë©´).
 		viewport.TopLeftX = 0.0f;
 		viewport.TopLeftY = 0.0f;
 		viewport.Width = (float)width;
@@ -108,25 +112,48 @@ namespace Blue
 		viewport.MaxDepth = 1.0f;
 		viewport.MinDepth = 0.0f;
 
-		// ºäÆ÷Æ® ¼³Á¤
+		// ë·°í¬íŠ¸ ì„¤ì •.
 		context->RSSetViewports(1, &viewport);
 	}
 
 	Renderer::~Renderer()
 	{
+		// DX ë¦¬ì†ŒìŠ¤ í•´ì œ.
+		if (context)
+		{
+			context->Release();
+			context = nullptr;
+		}
+		if (swapChain)
+		{
+			swapChain->Release();
+			swapChain = nullptr;
+		}
+ 
+		if (renderTargetView)
+		{
+			renderTargetView->Release();
+			renderTargetView = nullptr;
+		}
+ 
+		if (device)
+		{
+			device->Release();
+			device = nullptr;
+		}
 	}
 
 	void Renderer::Draw(std::shared_ptr<Level> level)
 	{
-		// 0. ±×¸®±â Àü ÀÛ¾÷ (BeginScene).
+		// 0. ê·¸ë¦¬ê¸° ì „ ì‘ì—… (BeginScene).
 		context->OMSetRenderTargets(1, &renderTargetView, nullptr);
 
-		// 1. Áö¿ì±â (Clear).
+		// 1. ì§€ìš°ê¸° (Clear).
 		float color[] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		context->ClearRenderTargetView(renderTargetView, color);
 
-		// 2. ±×¸®±â (Draw).
-		// Ä«¸Ş¶ó ¹ÙÀÎµù.
+		// 2. ê·¸ë¦¬ê¸° (Draw).
+		// ì¹´ë©”ë¼ ë°”ì¸ë”©.
 		if (level->GetCamera())
 		{
 			level->GetCamera()->Draw();
@@ -134,7 +161,7 @@ namespace Blue
 
 		for (uint32 ix = 0; ix < level->ActorCount(); ++ix)
 		{
-			// ¾×ÅÍ °¡Á®¿À±â.
+			// ì•¡í„° ê°€ì ¸ì˜¤ê¸°.
 			auto actor = level->GetActor(ix);
 
 			// Draw.
@@ -149,7 +176,7 @@ namespace Blue
 			}
 		}
 
-		// 3. ¹öÆÛ ±³È¯ (Swap) => EndScene/Present
+		// 3. ë²„í¼ êµí™˜ (Swap) => EndScene/Present.
 		swapChain->Present(1u, 0u);
 	}
 }

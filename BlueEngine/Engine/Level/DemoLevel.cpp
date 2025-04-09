@@ -21,9 +21,9 @@ namespace Blue
 {
     DemoLevel::DemoLevel()
     {
-        // µ¥¸ğ ¾À(·¹º§) ±¸¼º.
+        // ë°ëª¨ ì”¬(ë ˆë²¨) êµ¬ì„±.
 
-        // ¾×ÅÍ »ı¼º.
+        // ì•¡í„° ìƒì„±.
         std::shared_ptr<QuadActor> actor = std::make_shared<QuadActor>();
         actor->transform.scale = Vector3::One * 0.5f;
         //actor->transform.position.x = 0.5f;
@@ -32,14 +32,14 @@ namespace Blue
         actor2->transform.scale = Vector3::One * 0.5f;
         actor2->transform.position.x = 0.6f;
 
-        // Ä«¸Ş¶ó ¾×ÅÍ »ı¼º.
+        // ì¹´ë©”ë¼ ì•¡í„° ìƒì„±.
         std::shared_ptr<Actor> cameraActor = std::make_shared<Actor>();
         cameraActor->transform.position.y = -0.5f;
         cameraActor->AddComponent(std::make_shared<CameraComponent>());
 
         //this->cameraActor = cameraActor;
 
-        // ¾×ÅÍ¸¦ ·¹º§¿¡ Ãß°¡.
+        // ì•¡í„°ë¥¼ ë ˆë²¨ì— ì¶”ê°€.
         AddActor(actor);
         AddActor(actor2);
         AddActor(cameraActor);

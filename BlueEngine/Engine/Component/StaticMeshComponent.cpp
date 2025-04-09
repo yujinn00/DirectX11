@@ -17,10 +17,10 @@ namespace Blue
     {
         //Component::Draw();
 
-        // ¼­ºê ¸Þ½Ã¸¦ ¼øÈ¸ÇÏ¸é¼­ DrawCall.
+        // ì„œë¸Œ ë©”ì‹œë¥¼ ìˆœíšŒí•˜ë©´ì„œ DrawCall.
         uint32 meshCount = mesh->SubMeshCount();
 
-        // ¿¹¿ÜÃ³¸®.
+        // ì˜ˆì™¸ ì²˜ë¦¬.
         if (meshCount != (uint32)shaders.size())
         {
             return;
@@ -28,16 +28,16 @@ namespace Blue
 
         for (int ix = 0; ix < meshCount; ++ix)
         {
-            // ¼­ºê ¸Þ½Ã °¡Á®¿À±â.
+            // ì„œë¸Œ ë©”ì‹œ ê°€ì ¸ì˜¤ê¸°.
             auto subMesh = mesh->GetSubMesh(ix);
 
-            // ¸Þ½Ã°¡ À¯È¿ÇÏ¸é Draw.
+            // ë©”ì‹œê°€ ìœ íš¨í•˜ë©´ Draw.
             if (subMesh.lock() && shaders[ix].lock())
             {
-                // ¼­ºê ¸Þ½Ã ¹ÙÀÎµù.
+                // ì„œë¸Œ ë©”ì‹œ ë°”ì¸ë”©.
                 subMesh.lock()->Bind();
 
-                // ¼ÎÀÌ´õ ¹ÙÀÎµù.
+                // ì…°ì´ë” ë°”ì¸ë”©.
                 shaders[ix].lock()->Bind();
 
                 // DrawCall.

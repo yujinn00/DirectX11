@@ -5,78 +5,78 @@ namespace Blue
 	Window::Window(uint32 width, uint32 height, const std::wstring& title, HINSTANCE instance, WNDPROC messageProcedure)
 		: width(width), height(height), title(title), instance(instance)
 	{
-		// Ã¢ »ı¼º¿¡ ÇÊ¿äÇÑ ¼³Á¤ ±¸Á¶Ã¼
+		// ì°½ ìƒì„±ì— í•„ìš”í•œ ì„¤ì • êµ¬ì¡°ì²´.
 		WNDCLASS wc = { };
 
-		// ¸Ş¼¼Áö Ã³¸®¸¦ À§ÇÑ Äİ¹é Àü´Ş
+		// ë©”ì„¸ì§€ ì²˜ë¦¬ë¥¼ ìœ„í•œ ì½œë°± ì „ë‹¬.
 		wc.lpfnWndProc = messageProcedure;
 
-		// ÇÁ·Î±×·¥ ÁÖ¼Ò Àü´Ş
+		// í”„ë¡œê·¸ë¨ ì£¼ì†Œ ì „ë‹¬.
 		wc.hInstance = instance;
 
-		// Ã¢ »ı¼º¿¡ »ç¿ëÇÒ Å¬·¡½º ÀÌ¸§ Àü´Ş
+		// ì°½ ìƒì„±ì— ì‚¬ìš©í•  í´ë˜ìŠ¤ ì´ë¦„ ì „ë‹¬.
 		wc.lpszClassName = className.c_str();
 
-		// Å¬·¡½º µî·Ï
+		// í´ë˜ìŠ¤ ë“±ë¡.
 		if (!RegisterClass(&wc))
 		{
-			// ¸Ş¼¼Áö Ãâ·Â #1: Ãâ·ÂÃ¢ ÀÌ¿ë
+			// ë©”ì„¸ì§€ ì¶œë ¥ #1: ì¶œë ¥ì°½ ì´ìš©.
 			OutputDebugStringA("Failed to register a window class\n");
 
-			// ¸Ş¼¼Áö Ãâ·Â #2: ¸Ş¼¼Áö ¹Ú½º ÀÌ¿ë
+			// ë©”ì„¸ì§€ ì¶œë ¥ #2: ë©”ì„¸ì§€ ë°•ìŠ¤ ì´ìš©.
 			MessageBoxA(nullptr, "Failed to register a window", "Error", MB_OK);
 
 			__debugbreak();
 		}
 
-		// Ã¢ÀÇ À§Ä¡ ¼³Á¤
+		// ì°½ì˜ ìœ„ì¹˜ ì„¤ì •.
 		unsigned int positionX = (GetSystemMetrics(SM_CXSCREEN) - width) / 2;
 		unsigned int positionY = (GetSystemMetrics(SM_CYSCREEN) - height) / 2;
 
-		// Ã¢ Å©±â Á¶Á¤
+		// ì°½ í¬ê¸° ì¡°ì •.
 		RECT rect = { 0, 0, (long)width, (long)height };
 		AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
 
-		// Ã¢ Å©±â Àç¼³Á¤
+		// ì°½ í¬ê¸° ì¬ì„¤ì •.
 		unsigned int windowWidth = rect.right - rect.left;
 		unsigned int windowHeight = rect.bottom - rect.top;
 
-		// »ı¼º
+		// ìƒì„±.
 		handle = CreateWindow(
-			className.c_str(),			// Window class
-			title.c_str(),				// Window text
-			WS_OVERLAPPEDWINDOW,		// Window style
+			className.c_str(),			// Window class.
+			title.c_str(),				// Window text.
+			WS_OVERLAPPEDWINDOW,		// Window style.
 			// Size and position
 			positionX, positionY,
 			windowWidth, windowHeight,
-			nullptr,					// Parent window
-			nullptr,					// Menu
-			instance,					// Instance handle
-			nullptr						// Additional application data
+			nullptr,					// Parent window.
+			nullptr,					// Menu.
+			instance,					// Instance handle.
+			nullptr						// Additional application data.
 		);
 
-		// ½ÇÆĞ ½Ã ¿¡·¯ ¸Ş¼¼Áö Ãâ·Â
+		// ì‹¤íŒ¨ ì‹œ ì—ëŸ¬ ë©”ì„¸ì§€ ì¶œë ¥.
 		if (handle == nullptr)
 		{
-			// ¸Ş¼¼Áö Ãâ·Â #1: Ãâ·ÂÃ¢ ÀÌ¿ë
+			// ë©”ì„¸ì§€ ì¶œë ¥ #1: ì¶œë ¥ì°½ ì´ìš©.
 			OutputDebugStringA("Failed to create a window class\n");
 
-			// ¸Ş¼¼Áö Ãâ·Â #2: ¸Ş¼¼Áö ¹Ú½º ÀÌ¿ë
+			// ë©”ì„¸ì§€ ì¶œë ¥ #2: ë©”ì„¸ì§€ ë°•ìŠ¤ ì´ìš©.
 			MessageBoxA(nullptr, "Failed to create a window", "Error", MB_OK);
 
 			__debugbreak();
 		}
 
-		// Ã¢ º¸ÀÌ±â
+		// ì°½ ë³´ì´ê¸°.
 		ShowWindow(handle, SW_SHOW);
 
-		// Ã¢ ¸Ş¼¼Áö ¾÷µ¥ÀÌÆ®
+		// ì°½ ë©”ì„¸ì§€ ì—…ë°ì´íŠ¸.
 		UpdateWindow(handle);
 	}
 
 	Window::~Window()
 	{
-		// Å¬·¡½º µî·Ï ÇØÁ¦
+		// í´ë˜ìŠ¤ ë“±ë¡ í•´ì œ.
 		UnregisterClass(className.c_str(), instance);
 	}
 

@@ -9,14 +9,14 @@ namespace Blue
 {
     QuadActor::QuadActor()
     {
-        // ½ºÅÂÆ½ ¸Ş½Ã ÄÄÆ÷³ÍÆ® »ı¼º.
+        // ìŠ¤íƒœí‹± ë©”ì‹œ ì»´í¬ë„ŒíŠ¸ ìƒì„±.
         std::shared_ptr<StaticMeshComponent> meshComponent
             = std::make_shared<StaticMeshComponent>();
 
-        // ¾×ÅÍ¿¡ ÄÄÆ÷³ÍÆ® Ãß°¡.
+        // ì•¡í„°ì— ì»´í¬ë„ŒíŠ¸ ì¶”ê°€.
         AddComponent(meshComponent);
 
-        // ¸®¼Ò½º ·Îµå ¹× ÄÄÆ÷³ÍÆ® ¼³Á¤.
+        // ë¦¬ì†ŒìŠ¤ ë¡œë“œ ë° ì»´í¬ë„ŒíŠ¸ ì„¤ì •.
         meshComponent->SetMesh(std::make_shared<QuadMesh>());
         std::weak_ptr<TextureMappingShader> shader;
         if (ShaderLoader::Get().Load<TextureMappingShader>(shader, "T_coord.png"))

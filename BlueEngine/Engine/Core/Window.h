@@ -7,19 +7,19 @@
 
 namespace Blue
 {
-	// À©µµ¿ì Å¬·¡½º
+	// ìœˆë„ìš° í´ë˜ìŠ¤
 	class Window
 	{
 	public:
 		Window(uint32 width, uint32 height, const std::wstring& title, HINSTANCE instance, WNDPROC messageProcedure);
 		~Window();
 
-		// Getter
+		// Getter.
 		inline const uint32 Width() const { return width; }
 		inline const uint32 Height() const { return height; }
 		inline HWND Handle() const { return handle; }
 
-		// Setter
+		// Setter.
 		void SetWidthHeight(uint32 width, uint32 height);
 
 	private:

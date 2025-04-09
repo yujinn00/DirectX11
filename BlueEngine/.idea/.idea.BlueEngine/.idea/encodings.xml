@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Engine/Actor/Actor.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Actor/Actor.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Actor/QuadActor.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Actor/QuadActor.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Component/CameraComponent.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Component/CameraComponent.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Component/StaticMeshComponent.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Component/StaticMeshComponent.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Core/Common.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Core/Engine.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Core/Engine.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Core/Type.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Core/Window.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Core/Window.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/HLSLShader/DefaultVertexShader.hlsl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/HLSLShader/TextureMappingVertexShader.hlsl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Level/DemoLevel.cpp" charset="EUC-KR" />
+    <file url="file://$PROJECT_DIR$/Engine/Level/Level.cpp" charset="EUC-KR" />
+    <file url="file://$PROJECT_DIR$/Engine/Level/Level.h" charset="EUC-KR" />
+    <file url="file://$PROJECT_DIR$/Engine/Main.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Matrix4.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Matrix4.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Transform.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Transform.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Vector2.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Vector2.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Vector3.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Math/Vector3.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Mesh.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Mesh.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/QuadMesh.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/QuadMesh.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Renderer.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Renderer.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Texture.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Texture.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/TriangleMesh.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/TriangleMesh.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Render/Vertex.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Resource/ModelLoader.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Resource/ShaderLoader.inl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Shader/Shader.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Shader/Shader.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Shader/TextureMappingShader.cpp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Engine/Shader/TextureMappingShader.h" charset="UTF-8" />
+  </component>
+</project>

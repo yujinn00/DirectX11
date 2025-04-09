@@ -29,7 +29,7 @@ VertexOutput main(VertexInput input)
 {
     VertexOutput output;
     //output.position = float4(input.position, 1);
-    output.position = mul(float4(input.position, 1), worldMatrix); // worldMatrix¿¡´Â TRS Á¤º¸°¡ µé¾î°¡ ÀÖÀ½.
+    output.position = mul(float4(input.position, 1), worldMatrix); // worldMatrixì—ëŠ” TRS ì •ë³´ê°€ ë“¤ì–´ê°€ ìˆìŒ.
     output.position = mul(output.position, view);
 
     output.color = input.color;

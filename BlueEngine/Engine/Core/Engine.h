@@ -9,7 +9,7 @@
 
 namespace Blue
 {
-	// ¿£Áø Å¬·¡½º
+	// ì—”ì§„ í´ë˜ìŠ¤.
 	class Engine
 	{
 	public:
@@ -19,42 +19,42 @@ namespace Blue
 			HINSTANCE hInstance);
 		virtual ~Engine();
 
-		// ¿£Áø ½ÇÇà ÇÔ¼ö
+		// ì—”ì§„ ì‹¤í–‰ í•¨ìˆ˜.
 		void Run();
 
-		// ¸ŞÀÎ ·¹º§ ¼³Á¤ ÇÔ¼ö.
+		// ë©”ì¸ ë ˆë²¨ ì„¤ì • í•¨ìˆ˜.
 		void SetLevel(std::shared_ptr<class Level> newLevel);
 
-		// À©µµ¿ì ¸Ş¼¼Áö Ã³¸® ·çÇÁ
+		// ìœˆë„ìš° ë©”ì„¸ì§€ ì²˜ë¦¬ ë£¨í”„.
 		static LRESULT CALLBACK WindowProc(HWND handle, UINT message, WPARAM wparam, LPARAM lparam);
 
-		// ½Ì±ÛÅæ Á¢±Ù ÇÔ¼ö
+		// ì‹±ê¸€í†¤ ì ‘ê·¼ í•¨ìˆ˜.
 		static Engine& Get();
 
-		// °ÔÅÍ
+		// ê²Œí„°.
 		ID3D11Device& Device() const;
 		ID3D11DeviceContext& Context() const;
 
 	protected:
-		// Ã¢ °´Ã¼
+		// ì°½ ê°ì²´.
 		std::shared_ptr<class Window> window;
 
-		// ·»´õ·¯ °´Ã¼
+		// ë Œë”ëŸ¬ ê°ì²´.
 		std::shared_ptr<class Renderer> renderer;
 
-		// ¼ÎÀÌ´õ ·Î´õ °´Ã¼.
+		// ì…°ì´ë” ë¡œë” ê°ì²´.
 		std::unique_ptr<class ShaderLoader> shaderLoader;
 
-		// ÅØ½ºÃ³ ·Î´õ °´Ã¼.
+		// í…ìŠ¤ì²˜ ë¡œë” ê°ì²´.
 		std::unique_ptr<class TextureLoader> textureLoader;
 
-		// ¸ğµ¨ ·Î´õ °´Ã¼.
+		// ëª¨ë¸ ë¡œë” ê°ì²´.
 		std::unique_ptr<class ModelLoader> modelLoader;
 
-		// ¸ŞÀÎ ·¹º§.
+		// ë©”ì¸ ë ˆë²¨.
 		std::shared_ptr<class Level> mainLevel;
 
-		// ½Ì±ÛÅæ °´Ã¼
+		// ì‹±ê¸€í†¤ ê°ì²´.
 		static Engine* instance;
 	};
 }

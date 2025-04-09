@@ -19,13 +19,13 @@ namespace Blue
 		static unsigned int Stride() { return sizeof(Vertex); }
 
 	public:
-		// Á¤Á¡ÀÇ À§Ä¡
+		// ì •ì ì˜ ìœ„ì¹˜.
 		Vector3 position;
 
-		// Á¤Á¡ÀÇ »ö»ó
+		// ì •ì ì˜ ìƒ‰ìƒ.
 		Vector3 color;
 
-		// Á¤Á¡ ±âÁØ ÅØ½ºÃ³ ÁÂÇ¥
+		// ì •ì  ê¸°ì¤€ í…ìŠ¤ì²˜ ì¢Œí‘œ.
 		Vector2 texCoord;
 	};
 }

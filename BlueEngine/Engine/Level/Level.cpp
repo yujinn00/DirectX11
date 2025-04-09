@@ -35,8 +35,8 @@ namespace Blue
 
     void Level::AddActor(std::shared_ptr<Actor> newActor)
     {
-        // »õ·Î Ãß°¡ÇÏ´Â ¾×ÅÍ°¡ Ä«¸Þ¶ó ÄÄÆ÷³ÍÆ®¸¦ °¡Á³´Âµ¥ È®ÀÎ.
-        // °¡Á³´Ù¸é, ¸ÞÀÎ Ä«¸Þ¶ó·Î ¼³Á¤.
+        // ìƒˆë¡œ ì¶”ê°€í•˜ëŠ” ì•¡í„°ê°€ ì¹´ë©”ë¼ ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì¡ŒëŠ”ë° í™•ì¸.
+        // ê°€ì¡Œë‹¤ë©´, ë©”ì¸ ì¹´ë©”ë¼ë¡œ ì„¤ì •.
         for (auto component : newActor->components)
         {
             std::shared_ptr<CameraComponent> cameraComp
@@ -54,6 +54,7 @@ namespace Blue
 
     std::shared_ptr<Actor> Level::GetActor(int index) const
     {
+        // ì˜ˆì™¸ ì²˜ë¦¬.
         if (index < 0 || index >= (int)actors.size())
         {
             return nullptr;

@@ -4,7 +4,7 @@
 
 namespace Blue
 {
-	// »ç°¢Çü ¸Ş½¬ Å¬·¡½º
+	// ì‚¬ê°í˜• ë©”ì‰¬ í´ë˜ìŠ¤.
 	class QuadMesh : public Mesh
 	{
 	public:

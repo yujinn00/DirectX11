@@ -17,7 +17,7 @@ namespace Blue
 
 	bool ModelLoader::Load(const std::string& name, std::weak_ptr<MeshData>& outData)
 	{
-		// ÀÌ¹Ì °¡Áö°í ÀÖ´ÂÁö È®ÀÎ.
+		// ì´ë¯¸ ê°€ì§€ê³  ìˆëŠ”ì§€ í™•ì¸.
 		auto result = meshes.find(name);
 		if (result != meshes.end())
 		{
@@ -25,7 +25,7 @@ namespace Blue
 			return true;
 		}
 
-		// ÆÄÀÏ·Îµå.
+		// íŒŒì¼ ë¡œë“œ.
 		char path[512] = {};
 		sprintf_s(path, 512, "../Assets/Meshes/%s", name.c_str());
 
@@ -42,21 +42,21 @@ namespace Blue
 		std::vector<Vector3> normals;
 		std::vector<Vertex> vertices;
 
-		// ÆÄ½Ì(Parcing, ÇØ¼®).
+		// íŒŒì‹±(Parcing, í•´ì„).
 		char line[512] = {};
 		while (!feof(file))
 		{
-			// ÇÑ ÁÙ¾¿ ÀĞ±â.
+			// í•œ ì¤„ì”© ì½ê¸°.
 			if (!fgets(line, 512, file))
 			{
 				break;
 			}
 
-			// Çì´õ ÀĞ±â.
+			// í—¤ë” ì½ê¸°.
 			char header[3] = {};
 			sscanf_s(line, "%s", header, 3);
 
-			// °¢ Å¸ÀÔ º°·Î µ¥ÀÌÅÍ ÀúÀå.
+			// ê° íƒ€ì… ë³„ë¡œ ë°ì´í„° ì €ì¥.
 			if (strcmp(header, "v") == 0)
 			{
 				Vector3 position;
@@ -90,10 +90,10 @@ namespace Blue
 			}
 		}
 
-		// ÆÄÀÏ ´İ±â.
+		// íŒŒì¼ ë‹«ê¸°.
 		fclose(file);
 
-		// ÀÎµ¦½º ¹è¿­.
+		// ì¸ë±ìŠ¤ ë°°ì—´.
 		std::vector<uint32> indices;
 		indices.reserve(vertices.size());
 
@@ -102,7 +102,7 @@ namespace Blue
 			indices.emplace_back(ix);
 		}
 
-		// ¸Ş½Ã µ¥ÀÌÅÍ »ı¼º ¹× ¸®¼Ò½º µî·Ï.
+		// ë©”ì‹œ ë°ì´í„° ìƒì„± ë° ë¦¬ì†ŒìŠ¤ ë“±ë¡.
 		std::shared_ptr<MeshData> newData = std::make_shared<MeshData>(vertices, indices);
 		meshes.insert(std::make_pair(name, newData));
 		outData = newData;

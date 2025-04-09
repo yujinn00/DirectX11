@@ -10,7 +10,7 @@ namespace Blue
 
 	Matrix4::Matrix4()
 	{
-		// ´ÜÀ§ Çà·Ä ¸¸µé±â.
+		// ë‹¨ìœ„ í–‰ë ¬ ë§Œë“¤ê¸°.
 		memset(elements, 0, sizeof(float) * 16);
 		m00 = m11 = m22 = m33 = 1.0f;
 	}
@@ -29,7 +29,7 @@ namespace Blue
 	{
 		Matrix4 m;
 
-		// Çà·Ä.
+		// í–‰ë ¬.
 		m.m00 = 1.0f;	m.m01 = 0.0f;	m.m02 = 0.0f;	m.m03 = 0.0f;
 		m.m10 = 0.0f;	m.m11 = 1.0f;	m.m12 = 0.0f;	m.m13 = 0.0f;
 		m.m20 = 0.0f;	m.m21 = 0.0f;	m.m22 = 1.0f;	m.m23 = 0.0f;
@@ -51,14 +51,14 @@ namespace Blue
 
 	Matrix4 Matrix4::RotationX(float angle)
 	{
-		// ¹İÈ¯À» À§ÇÑ Çà·Ä º¯¼ö ¼±¾ğ (´ÜÀ§ Çà·Ä).
+		// ë°˜í™˜ì„ ìœ„í•œ í–‰ë ¬ ë³€ìˆ˜ ì„ ì–¸ (ë‹¨ìœ„ í–‰ë ¬).
 		Matrix4 m;
 
-		// Çà·Ä °è»êÀ» À§ÇÑ »ï°¢ÇÔ¼ö °ª ÀúÀå.
+		// í–‰ë ¬ ê³„ì‚°ì„ ìœ„í•œ ì‚¼ê°í•¨ìˆ˜ ê°’ ì €ì¥.
 		float cosAngle = std::cos(angle * degreeToRadian);
 		float sinAngle = std::sin(angle * degreeToRadian);
 
-		// Çà·Ä.
+		// í–‰ë ¬.
 		m.m00 = 1.0f;	m.m01 = 0.0f;		m.m02 = 0.0f;		m.m03 = 0.0f;
 		m.m10 = 0.0f;	m.m11 = cosAngle;	m.m12 = sinAngle;	m.m13 = 0.0f;
 		m.m20 = 0.0f;	m.m21 = -sinAngle;	m.m22 = cosAngle;	m.m23 = 0.0f;
@@ -69,14 +69,14 @@ namespace Blue
 
 	Matrix4 Matrix4::RotationY(float angle)
 	{
-		// ¹İÈ¯À» À§ÇÑ Çà·Ä º¯¼ö ¼±¾ğ (´ÜÀ§ Çà·Ä).
+		// ë°˜í™˜ì„ ìœ„í•œ í–‰ë ¬ ë³€ìˆ˜ ì„ ì–¸ (ë‹¨ìœ„ í–‰ë ¬).
 		Matrix4 m;
 
-		// Çà·Ä °è»êÀ» À§ÇÑ »ï°¢ÇÔ¼ö °ª ÀúÀå.
+		// í–‰ë ¬ ê³„ì‚°ì„ ìœ„í•œ ì‚¼ê°í•¨ìˆ˜ ê°’ ì €ì¥.
 		float cosAngle = std::cos(angle * degreeToRadian);
 		float sinAngle = std::sin(angle * degreeToRadian);
 
-		// Çà·Ä.
+		// í–‰ë ¬.
 		m.m00 = cosAngle;	m.m01 = 0.0f;	m.m02 = -sinAngle;	m.m03 = 0.0f;
 		m.m10 = 0.0f;		m.m11 = 1.0f;	m.m12 = 0.0f;		m.m13 = 0.0f;
 		m.m20 = sinAngle;	m.m21 = 0.0f;	m.m22 = cosAngle;	m.m23 = 0.0f;
@@ -87,14 +87,14 @@ namespace Blue
 
 	Matrix4 Matrix4::RotationZ(float angle)
 	{
-		// ¹İÈ¯À» À§ÇÑ Çà·Ä º¯¼ö ¼±¾ğ (´ÜÀ§ Çà·Ä).
+		// ë°˜í™˜ì„ ìœ„í•œ í–‰ë ¬ ë³€ìˆ˜ ì„ ì–¸ (ë‹¨ìœ„ í–‰ë ¬).
 		Matrix4 m;
 
-		// Çà·Ä °è»êÀ» À§ÇÑ »ï°¢ÇÔ¼ö °ª ÀúÀå.
+		// í–‰ë ¬ ê³„ì‚°ì„ ìœ„í•œ ì‚¼ê°í•¨ìˆ˜ ê°’ ì €ì¥.
 		float cosAngle = std::cos(angle * degreeToRadian);
 		float sinAngle = std::sin(angle * degreeToRadian);
 
-		// Çà·Ä.
+		// í–‰ë ¬.
 		m.m00 = cosAngle;	m.m01 = sinAngle;	m.m02 = 0.0f;	m.m03 = 0.0f;
 		m.m10 = -sinAngle;	m.m11 = cosAngle;	m.m12 = 0.0f;	m.m13 = 0.0f;
 		m.m20 = 0.0f;		m.m21 = 0.0f;		m.m22 = 1.0f;	m.m23 = 0.0f;
@@ -112,7 +112,7 @@ namespace Blue
 	{
 		Matrix4 m;
 
-		// Çà·Ä.
+		// í–‰ë ¬.
 		m.m00 = x;		m.m01 = 0.0f;	m.m02 = 0.0f;	m.m03 = 0.0f;
 		m.m10 = 0.0f;	m.m11 = y;		m.m12 = 0.0f;	m.m13 = 0.0f;
 		m.m20 = 0.0f;	m.m21 = 0.0f;	m.m22 = z;		m.m23 = 0.0f;
@@ -149,7 +149,7 @@ namespace Blue
 
 	Matrix4 Matrix4::operator*(const Matrix4& other)
 	{
-		// ¹İÈ¯À» À§ÇÑ Çà·Ä º¯¼ö ¼±¾ğ (´ÜÀ§ Çà·Ä).
+		// ë°˜í™˜ì„ ìœ„í•œ í–‰ë ¬ ë³€ìˆ˜ ì„ ì–¸ (ë‹¨ìœ„ í–‰ë ¬).
 		Matrix4 m;
 
 		m.m00 = m00 * other.m00 + m01 * other.m10 + m02 * other.m20 + m03 * other.m30;

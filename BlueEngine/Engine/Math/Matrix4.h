@@ -11,26 +11,26 @@ namespace Blue
 		Matrix4(const Matrix4& other);
 		~Matrix4() = default;
 
-		// ¸Ş¸ğ¸® ³Êºñ (´ÜÀ§: ¹ÙÀÌÆ®).
+		// ë©”ëª¨ë¦¬ ë„ˆë¹„ (ë‹¨ìœ„: ë°”ì´íŠ¸).
 		static uint32 Stride() { return sizeof(Matrix4); }
 
-		// ÀÌµ¿ º¯È¯ Çà·Ä (T).
-		static Matrix4 Translation(const Vector3& position);	// ¸ŞÀÎ X => °£Á¢ È£Ãâ.
-		static Matrix4 Translation(float x, float y, float z);	// ¸ŞÀÎ O.
+		// ì´ë™ ë³€í™˜ í–‰ë ¬ (T).
+		static Matrix4 Translation(const Vector3& position);	// ë©”ì¸ X => ê°„ì ‘ í˜¸ì¶œ.
+		static Matrix4 Translation(float x, float y, float z);	// ë©”ì¸ O.
 
-		// È¸Àü º¯È¯ Çà·Ä (R).
-		static Matrix4 Rotation(const Vector3& rotation);		// ¸ŞÀÎ X => °£Á¢ È£Ãâ.
-		static Matrix4 Rotation(float x, float y, float z);		// ¸ŞÀÎ X => °£Á¢ È£Ãâ.
-		static Matrix4 RotationX(float angle);					// ¸ŞÀÎ O.
-		static Matrix4 RotationY(float angle);					// ¸ŞÀÎ O.
-		static Matrix4 RotationZ(float angle);					// ¸ŞÀÎ O.
+		// íšŒì „ ë³€í™˜ í–‰ë ¬ (R).
+		static Matrix4 Rotation(const Vector3& rotation);		// ë©”ì¸ X => ê°„ì ‘ í˜¸ì¶œ.
+		static Matrix4 Rotation(float x, float y, float z);		// ë©”ì¸ X => ê°„ì ‘ í˜¸ì¶œ.
+		static Matrix4 RotationX(float angle);					// ë©”ì¸ O.
+		static Matrix4 RotationY(float angle);					// ë©”ì¸ O.
+		static Matrix4 RotationZ(float angle);					// ë©”ì¸ O.
 
-		// Å©±â º¯È¯ Çà·Ä (S).
-		static Matrix4 Scale(const Vector3& scale);				// ¸ŞÀÎ X => °£Á¢ È£Ãâ.
-		static Matrix4 Scale(float x, float y, float z);		// ¸ŞÀÎ O.
-		static Matrix4 Scale(float scale);						// ¸ŞÀÎ X => °£Á¢ È£Ãâ.
+		// í¬ê¸° ë³€í™˜ í–‰ë ¬ (S).
+		static Matrix4 Scale(const Vector3& scale);				// ë©”ì¸ X => ê°„ì ‘ í˜¸ì¶œ.
+		static Matrix4 Scale(float x, float y, float z);		// ë©”ì¸ O.
+		static Matrix4 Scale(float scale);						// ë©”ì¸ X => ê°„ì ‘ í˜¸ì¶œ.
 
-		// ÀüÄ¡ Çà·Ä.
+		// ì „ì¹˜ í–‰ë ¬.
 		static Matrix4 Transpose(const Matrix4& target);
 
 		// operator overloading.
@@ -38,8 +38,8 @@ namespace Blue
 		Matrix4 operator*(const Matrix4& other);
 		Matrix4 operator*=(const Matrix4& other);
 
-		friend Vector3 operator*(const Matrix4& matrix, const Vector3& vector); // ÀÌ°Ç ¸ŞÀÎÀÌ ¾Æ´Ï¹Ç·Î °£Á¢ È£Ãâ.
-		friend Vector3 operator*(const Vector3& vector, const Matrix4& matrix); // DX¿¡¼­´Â ÀÌ°Ô ¸ŞÀÎ.
+		friend Vector3 operator*(const Matrix4& matrix, const Vector3& vector); // ì´ê±´ ë©”ì¸ì´ ì•„ë‹ˆë¯€ë¡œ ê°„ì ‘ í˜¸ì¶œ.
+		friend Vector3 operator*(const Vector3& vector, const Matrix4& matrix); // DXì—ì„œëŠ” ì´ê²Œ ë©”ì¸.
 
 		// Degree <-> Radian.
 		static Matrix4 Identity;
@@ -47,7 +47,7 @@ namespace Blue
 		static constexpr float radianToDegree = 180.0f / 3.141592f;
 
 	private:
-		// °ø¿ëÃ¼.
+		// ê³µìš©ì²´.
 		union
 		{
 			struct

@@ -7,7 +7,7 @@
 
 namespace Blue
 {
-	// Æ®·£½ºÆû(º¯È¯) Á¤º¸¸¦ Á¦°øÇÏ´Â Å¬·¡½º.
+	// íŠ¸ëœìŠ¤í¼(ë³€í™˜) ì •ë³´ë¥¼ ì œê³µí•˜ëŠ” í´ë˜ìŠ¤.
 	class Transform
 	{
 	public:
@@ -18,16 +18,16 @@ namespace Blue
 		void Bind();
 
 	public:
-		// Æ®·£½ºÆû(º¯È¯) ¿ä¼Ò (TRS).
+		// íŠ¸ëœìŠ¤í¼(ë³€í™˜) ìš”ì†Œ (TRS).
 		Vector3 position = Vector3::Zero;
-		Vector3 rotation = Vector3::Zero; // ÃßÈÄ »ç¿ø¼ö·Î ¹Ù²Ü ¼ö ÀÖÀ½.
+		Vector3 rotation = Vector3::Zero; // ì¶”í›„ ì‚¬ì›ìˆ˜ë¡œ ë°”ê¿€ ìˆ˜ ìˆìŒ.
 		Vector3 scale = Vector3::One;
 
 	private:
-		// Æ®·£½ºÆû Çà·Ä.
+		// íŠ¸ëœìŠ¤í¼ í–‰ë ¬.
 		Matrix4 transformMatrix;
 
-		// »ó¼ö ¹öÆÛ.
+		// ìƒìˆ˜ ë²„í¼.
 		ID3D11Buffer* constantBuffer = nullptr;
 	};
 }

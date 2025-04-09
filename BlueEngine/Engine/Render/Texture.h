@@ -7,7 +7,7 @@
 
 namespace Blue
 {
-	// ÅØ½ºÃ³ ÆÄÀÏÀ» ÀĞ¾î¼­ ÀúÁ¤ÇÒ ±¸Á¶Ã¼
+	// í…ìŠ¤ì²˜ íŒŒì¼ì„ ì½ì–´ì„œ ì €ì •í•  êµ¬ì¡°ì²´.
 	struct TextureData
 	{
 		TextureData() = default;
@@ -16,7 +16,7 @@ namespace Blue
 			free(data);
 			data = nullptr;
 
-			// DX ¸®¼Ò½º ÇØÁ¦
+			// DX ë¦¬ì†ŒìŠ¤ í•´ì œ.
 			shaderResourceView->Release();
 			shaderResourceView = nullptr;
 
@@ -24,21 +24,21 @@ namespace Blue
 			samplerState = nullptr;
 		}
 
-		// ÅØ½ºÃ³ ¿ø½Ã µ¥ÀÌÅÍ
+		// í…ìŠ¤ì²˜ ì›ì‹œ ë°ì´í„°.
 		int32 width = 0;
 		int32 height = 0;
 		int32 channelCount = 0;
 		void* data = nullptr;
 
-		// DX ¸®¼Ò½º
+		// DX ë¦¬ì†ŒìŠ¤.
 		ID3D11ShaderResourceView* shaderResourceView = nullptr;
 		ID3D11SamplerState* samplerState = nullptr;
 	};
 
-	// ÅØ½ºÃ³ Å¬·¡½º
+	// í…ìŠ¤ì²˜ í´ë˜ìŠ¤.
 	class Texture
 	{
-		// ¹ÙÀÎµùÇÒ ¼ÎÀÌ´õ ¿­°ÅÇü
+		// ë°”ì¸ë”©í•  ì…°ì´ë” ì—´ê±°í˜•.
 		enum class BindType
 		{
 			VertexShader,
@@ -56,20 +56,20 @@ namespace Blue
 		void Bind();
 
 	private:
-		// ³»ºÎ¿¡¼­ ÀÌ¹ÌÁö ºÎ¸£´Â ÇÔ¼ö
+		// ë‚´ë¶€ì—ì„œ ì´ë¯¸ì§€ ë¶€ë¥´ëŠ” í•¨ìˆ˜.
 		void LoadTexture(const std::string& name);
 
 	private:
-		// ÀÌ¹ÌÁö ÀÌ¸§
+		// ì´ë¯¸ì§€ ì´ë¦„.
 		std::string name;
 
-		// ÅØ½ºÃ³ ¼ø¹ø
+		// í…ìŠ¤ì²˜ ìˆœë²ˆ.
 		uint32 index = 0;
 
-		// ¹ÙÀÎµù ¼ÎÀÌ´õ Å¸ÀÔ
+		// ë°”ì¸ë”© ì…°ì´ë” íƒ€ì….
 		BindType bindType = BindType::PixelShader;
 
-		// ÅØ½ºÃ³ µ¥ÀÌÅÍ
+		// í…ìŠ¤ì²˜ ë°ì´í„°.
 		std::unique_ptr<TextureData> textureData;
 	};
 }

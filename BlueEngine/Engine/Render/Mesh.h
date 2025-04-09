@@ -10,7 +10,7 @@
 
 namespace Blue
 {
-	// ¸Ş½¬ µ¥ÀÌÅÍ ±¸Á¶Ã¼
+	// ë©”ì‰¬ ë°ì´í„° êµ¬ì¡°ì²´.
 	struct MeshData
 	{
 		MeshData();
@@ -23,15 +23,15 @@ namespace Blue
 		void Bind();
 		uint32 IndexCount() const { return (uint32)indices.size(); }
 
-		// Á¤Á¡ µ¥ÀÌÅÍ¸¦ ¾÷µ¥ÀÌÆ®ÇÏ´Â ÇÔ¼ö.
+		// ì •ì  ë°ì´í„°ë¥¼ ì—…ë°ì´íŠ¸í•˜ëŠ” í•¨ìˆ˜.
 		void UpdateVertexBuffer(const std::vector<Vertex>& vertices);
 
-		// Á¤Á¡ µ¥ÀÌÅÍ
+		// ì •ì  ë°ì´í„°.
 		std::vector<Vertex> vertices;
 		uint32 stride = 0;
 		ID3D11Buffer* vertexBuffer = nullptr;
 
-		// ÀÎµ¦½º µ¥ÀÌÅÍ
+		// ì¸ë±ìŠ¤ ë°ì´í„°.
 		std::vector<uint32> indices;
 		ID3D11Buffer* indexBuffer = nullptr;
 	};
@@ -44,13 +44,13 @@ namespace Blue
 
 		//virtual void Draw();
 
-		// @Temp: Æ®·£½ºÆû Á¤º¸(ÀÓ½Ã) -> Actor.
+		// @Temp: íŠ¸ëœìŠ¤í¼ ì •ë³´(ì„ì‹œ) -> Actor.
 		//Transform transform;
 
-		// ¼­ºê ¸Ş½Ã °³¼ö ¹İÈ¯ Getter.
+		// ì„œë¸Œ ë©”ì‹œ ê°œìˆ˜ ë°˜í™˜ Getter.
 		uint32 SubMeshCount() const;
 
-		// ¼­ºê ¸Ş½Ã ¹İÈ¯ Getter.
+		// ì„œë¸Œ ë©”ì‹œ ë°˜í™˜ Getter.
 		std::weak_ptr<MeshData> GetSubMesh(int index) const;
 
 	protected:

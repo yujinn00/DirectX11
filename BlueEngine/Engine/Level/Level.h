@@ -7,7 +7,7 @@
 
 namespace Blue
 {
-    // ¿ùµå¿¡ ¹èÄ¡µÈ ¾×ÅÍ¸¦ °ü¸®.
+    // ì›”ë“œì— ë°°ì¹˜ëœ ì•¡í„°ë¥¼ ê´€ë¦¬.
     class Actor;
     class Level
     {
@@ -29,7 +29,7 @@ namespace Blue
     protected:
         std::vector<std::shared_ptr<Actor>> actors;
 
-        // ¸ŞÀÎ Ä«¸Ş¶ó ¾×ÅÍ.
+        // ë©”ì¸ ì¹´ë©”ë¼ ì•¡í„°.
         std::shared_ptr<Actor> cameraActor;
     };
 }

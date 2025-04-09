@@ -23,16 +23,16 @@ namespace Blue
 
 	void Texture::Bind()
 	{
-		// ¿¹¿Ü Ã³¸® (¹ÙÀÎµùÇÒ µ¥ÀÌÅÍ°¡ ¾øÀ¸¸é ¹İÈ¯)
+		// ì˜ˆì™¸ ì²˜ë¦¬ (ë°”ì¸ë”©í•  ë°ì´í„°ê°€ ì—†ìœ¼ë©´ ë°˜í™˜).
 		if (!textureData)
 		{
 			return;
 		}
 
-		// ÄÁÅØ½ºÆ® ¾ò±â
+		// ì»¨í…ìŠ¤íŠ¸ ì–»ê¸°.
 		static ID3D11DeviceContext& context = Engine::Get().Context();
 
-		// ¹ÙÀÎµù
+		// ë°”ì¸ë”©.
 		if (bindType == BindType::VertexShader)
 		{
 			context.VSSetShaderResources(index, 1, &textureData->shaderResourceView);
@@ -47,14 +47,14 @@ namespace Blue
 
 	void Texture::LoadTexture(const std::string& name)
 	{
-		// °æ·Î ¼³Á¤
+		// ê²½ë¡œ ì„¤ì •.
 		char path[256] = {};
 		sprintf_s(path, 256, "../Assets/Textures/%s", name.c_str());
 
-		// °´Ã¼ »ı¼º
+		// ê°ì²´ ìƒì„±.
 		textureData = std::make_unique<TextureData>();
 
-		// ÀÌ¹ÌÁö ÆÄÀÏ ·Îµå
+		// ì´ë¯¸ì§€ íŒŒì¼ ë¡œë“œ.
 		textureData->data = stbi_load(
 			path,
 			&textureData->width,
@@ -63,18 +63,18 @@ namespace Blue
 			0
 		);
 
-		// ¿¹¿Ü Ã³¸®
+		// ì˜ˆì™¸ ì²˜ë¦¬.
 		if (!textureData->data)
 		{
 			std::cout << "Error: Failed to load texture file: " << name << " \n";
 			__debugbreak();
 		}
 
-		// DX ¸®¼Ò½º »ı¼º
-		// »ı¼ºÀº ÀåÄ¡(Device)°¡ ´ã´ç
+		// DX ë¦¬ì†ŒìŠ¤ ìƒì„±.
+		// ìƒì„±ì€ ì¥ì¹˜(Device)ê°€ ë‹´ë‹¹.
 		static ID3D11Device& device = Engine::Get().Device();
 
-		// ·ÎµåÇÑ ÀÌ¹ÌÁö ÆÄÀÏ µ¥ÀÌÅÍ¸¦ ±â¹İÀ¸·Î ÅØ½ºÃ³ ¸®¼Ò½º »ı¼º
+		// ë¡œë“œí•œ ì´ë¯¸ì§€ íŒŒì¼ ë°ì´í„°ë¥¼ ê¸°ë°˜ìœ¼ë¡œ í…ìŠ¤ì²˜ ë¦¬ì†ŒìŠ¤ ìƒì„±.
 		D3D11_TEXTURE2D_DESC textureDesc = {};
 		textureDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 		textureDesc.ArraySize = 1;
@@ -87,31 +87,31 @@ namespace Blue
 
 		D3D11_SUBRESOURCE_DATA data = {};
 		data.pSysMem = textureData->data;
-		data.SysMemPitch = textureData->width * textureData->channelCount; // °¡·Î ÇÑ Ä­
+		data.SysMemPitch = textureData->width * textureData->channelCount; // ê°€ë¡œ í•œ ì¹¸.
 
 		ID3D11Texture2D* texture = nullptr;
 		auto result = device.CreateTexture2D(&textureDesc, &data, &texture);
 
-		// ¿¹¿Ü Ã³¸®
+		// ì˜ˆì™¸ ì²˜ë¦¬.
 		if (FAILED(result))
 		{
 			std::cout << "Error: Failed to create texture2d\n";
 			__debugbreak();
 		}
 
-		// ¼ÎÀÌ´õ ¸®¼Ò½º ºä »ı¼º (¼ÎÀÌ´õ¿¡ ¹ÙÀÎµùÇÒ ¸®¼Ò½º)
+		// ì…°ì´ë” ë¦¬ì†ŒìŠ¤ ë·° ìƒì„± (ì…°ì´ë”ì— ë°”ì¸ë”©í•  ë¦¬ì†ŒìŠ¤).
 		result = device.CreateShaderResourceView(
-			texture, nullptr, &textureData->shaderResourceView // ¼ÎÀÌ´õ¿¡ Àü´ŞÇÒ ÅØ½ºÃ³ÀÇ ½ÇÃ¼´Â ºä (¼ÎÀÌ´õ ¸®¼Ò½º ºä)
+			texture, nullptr, &textureData->shaderResourceView // ì…°ì´ë”ì— ì „ë‹¬í•  í…ìŠ¤ì²˜ì˜ ì‹¤ì²´ëŠ” ë·° (ì…°ì´ë” ë¦¬ì†ŒìŠ¤ ë·°).
 		);
 
-		// ¿¹¿Ü Ã³¸®
+		// ì˜ˆì™¸ ì²˜ë¦¬.
 		if (FAILED(result))
 		{
 			std::cout << "Error: Failed to create shaderResourceView\n";
 			__debugbreak();
 		}
 
-		// ´Ù ¾´ ¸®¼Ò½º ÇØÁ¦
+		// ë‹¤ ì“´ ë¦¬ì†ŒìŠ¤ í•´ì œ.
 		if (texture)
 		{
 			texture->Release();
@@ -128,10 +128,10 @@ namespace Blue
 		sampleDesc.MaxAnisotropy = 3;
 		sampleDesc.ComparisonFunc= D3D11_COMPARISON_ALWAYS;
 
-		// »ùÇÃ·¯ »ı¼º
+		// ìƒ˜í”ŒëŸ¬ ìƒì„±.
 		result = device.CreateSamplerState(&sampleDesc, &textureData->samplerState);
 
-		// ¿¹¿Ü Ã³¸®
+		// ì˜ˆì™¸ ì²˜ë¦¬.
 		if (FAILED(result))
 		{
 			std::cout << "Error: Failed to create sampler state\n";

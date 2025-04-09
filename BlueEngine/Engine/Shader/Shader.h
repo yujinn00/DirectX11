@@ -11,14 +11,14 @@ namespace Blue
 		Shader(const std::wstring& name = L"Default");
 		virtual ~Shader();
 
-		// GPU¿¡ ½¦ÀÌ´õ °´Ã¼¸¦ ¿¬°á(¹ÙÀÎµù)ÇÏ´Â ÇÔ¼ö
+		// GPUì— ì‰ì´ë” ê°ì²´ë¥¼ ì—°ê²°(ë°”ì¸ë”©)í•˜ëŠ” í•¨ìˆ˜.
 		virtual void Bind();
 
 	protected:
-		// ½¦ÀÌ´õ ÀÌ¸§
+		// ì‰ì´ë” ì´ë¦„.
 		std::wstring name;
 
-		// DX ¸®¼Ò½º
+		// DX ë¦¬ì†ŒìŠ¤.
 		ID3D11InputLayout* inputLayout = nullptr;
 
 		ID3D11VertexShader* vertexShader = nullptr;

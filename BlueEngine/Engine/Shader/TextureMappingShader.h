@@ -14,7 +14,7 @@ namespace Blue
 		virtual void Bind() override;
 
 	private:
-		// ÅØ½ºÃ³ ¸®¼Ò½º
+		// í…ìŠ¤ì²˜ ë¦¬ì†ŒìŠ¤.
 		//std::unique_ptr<class Texture> texture;
 		std::weak_ptr<class Texture> texture;
 	};

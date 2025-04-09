@@ -23,10 +23,10 @@ namespace Blue
 		{
 		}
 
-		// ¸Ş¸ğ¸® Å©±â
+		// ë©”ëª¨ë¦¬ í¬ê¸°.
 		static uint32 Stride() { return sizeof(Vector3); }
 
-		// ¿¬»êÀÚ ¿À¹ö·Îµù
+		// ì—°ì‚°ì ì˜¤ë²„ë¡œë”©.
 		Vector3& operator+=(const Vector3& other);
 		Vector3& operator-=(const Vector3& other);
 		Vector3& operator*=(float scale);
@@ -45,21 +45,21 @@ namespace Blue
 
 		friend Vector3 operator/(const Vector3& vector, float scale);
 
-		// (x, y) ¹®ÀÚ¿­ »ı¼º ÇÔ¼ö
+		// (x, y) ë¬¸ìì—´ ìƒì„± í•¨ìˆ˜.
 		std::wstring ToString();
 
-		// ±æÀÌ ±¸ÇÏ±â
+		// ê¸¸ì´ êµ¬í•˜ê¸°.
 		float Length();
-		friend float Dot(const Vector3& left, const Vector3& right); // ¿ÜÀû: Dot
-		friend Vector3 Cross(const Vector3& left, const Vector3& right); // ³»Àû: Cross
+		friend float Dot(const Vector3& left, const Vector3& right); // ì™¸ì : Dot.
+		friend Vector3 Cross(const Vector3& left, const Vector3& right); // ë‚´ì : Cross.
 		Vector3 Normalized();
 		bool Equals(const Vector3& other);
 
-		// ¼±Çü º¸°£ (ÇüÅÂ ¾Ï±â ÃßÃµ)
-		// °ø½Ä: ((1 - t) * from) + (t * to)
+		// ì„ í˜• ë³´ê°„ (í˜•íƒœ ì•”ê¸° ì¶”ì²œ).
+		// ê³µì‹: ((1 - t) * from) + (t * to).
 		friend Vector3 Lerp(const Vector3& from, const Vector3& to, float t);
 
-		// ±âº» °ª
+		// ê¸°ë³¸ ê°’.
 		static const Vector3 Zero;
 		static const Vector3 One;
 		static const Vector3 Right;

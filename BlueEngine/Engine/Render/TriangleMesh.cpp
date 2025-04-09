@@ -7,16 +7,16 @@ namespace Blue
 {
 	TriangleMesh::TriangleMesh()
 	{
-		// Á¤Á¡ ¹è¿­
+		// ì •ì  ë°°ì—´.
 		std::vector<Vertex> vertices =
 		{
-			// Vector(À§Ä¡, »ö»ó, Á¤Á¡ ±âÁØ ÅØ½ºÃ³ ÁÂÇ¥)
-			Vertex(Vector3(0.0f, 0.5f, 0.5f), Vector3(1.0f, 0.0f, 0.0f), Vector2(0.5f, 0.0f)), // Áß¾Ó »ó´Ü
-			Vertex(Vector3(0.5f, -0.5f, 0.5f), Vector3(0.0f, 1.0f, 0.0f), Vector2(1.0f, 1.0f)), // ¿ìÃø ÇÏ´Ü
-			Vertex(Vector3(-0.5f, -0.5f, 0.5f), Vector3(0.0f, 0.0f, 1.0f), Vector2(0.0f, 1.0f)), /// ÁÂÃø ÇÏ´Ü
+			// Vector(ìœ„ì¹˜, ìƒ‰ìƒ, ì •ì  ê¸°ì¤€ í…ìŠ¤ì²˜ ì¢Œí‘œ).
+			Vertex(Vector3(0.0f, 0.5f, 0.5f), Vector3(1.0f, 0.0f, 0.0f), Vector2(0.5f, 0.0f)), // ì¤‘ì•™ ìƒë‹¨
+			Vertex(Vector3(0.5f, -0.5f, 0.5f), Vector3(0.0f, 1.0f, 0.0f), Vector2(1.0f, 1.0f)), // ìš°ì¸¡ í•˜ë‹¨
+			Vertex(Vector3(-0.5f, -0.5f, 0.5f), Vector3(0.0f, 0.0f, 1.0f), Vector2(0.0f, 1.0f)), /// ì¢Œì¸¡ í•˜ë‹¨
 		};
 
-		// ÀÎµ¦½º ¹è¿­
+		// ì¸ë±ìŠ¤ ë°°ì—´.
 		std::vector<uint32> indices = { 0, 1, 2 };
 		meshes.emplace_back(std::make_shared<MeshData>(vertices, indices));
 		//shaders.emplace_back(std::make_shared<Shader>());

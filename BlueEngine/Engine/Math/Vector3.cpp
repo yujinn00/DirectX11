@@ -124,7 +124,7 @@ namespace Blue
 
 	Vector3 Lerp(const Vector3& from, const Vector3& to, float t)
 	{
-		// t °¡µÎ±â
+		// t ê°€ë‘ê¸°.
 		if (t < 0.0f)
 		{
 			t = 0.0f;

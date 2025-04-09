@@ -3,7 +3,7 @@ namespace Blue
 	template<typename T, typename ...Args, typename std::enable_if<std::is_base_of<Shader, T>::value>::type*>
 	inline bool ShaderLoader::Load(std::weak_ptr<T>& outShader, Args ...args)
 	{
-		// ÀÖ´ÂÁö È®ÀÎ ÈÄ Ã£¾ÒÀ¸¸é ¹İÈ¯.
+		// ìˆëŠ”ì§€ í™•ì¸ í›„ ì°¾ì•˜ìœ¼ë©´ ë°˜í™˜.
 		auto name = typeid(T).name();
 		auto find = shaders.find(name);
 		if (find != shaders.end())
@@ -12,7 +12,7 @@ namespace Blue
 			return true;
 		}
 
-		// ¾øÀ¸¸é »ı¼º ÈÄ °ü¸®ÀÚ¿¡ Ãß°¡ÇÏ°í ¹İÈ¯.
+		// ì—†ìœ¼ë©´ ìƒì„± í›„ ê´€ë¦¬ìì— ì¶”ê°€í•˜ê³  ë°˜í™˜.
 		std::shared_ptr<Shader> newShader = std::make_shared<T>(args...);
 		shaders.insert(std::make_pair(name, newShader));
 		outShader = std::static_pointer_cast<T>(newShader);

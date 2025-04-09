@@ -6,10 +6,10 @@
 
 namespace Blue
 {
-    // Ä«¸Ş¶ó ¹öÆÛ (»ó¼ö ¹öÆÛ).
+    // ì¹´ë©”ë¼ ë²„í¼ (ìƒìˆ˜ ë²„í¼).
     struct CameraBuffer
     {
-        // ºä º¯È¯ Çà·Ä.
+        // ë·° ë³€í™˜ í–‰ë ¬.
         Matrix4 viewMatrix;
     };
 
@@ -22,7 +22,7 @@ namespace Blue
         virtual void Draw() override;
 
     private:
-        // Ä«¸Ş¶ó ¼Ó¼º.
+        // ì¹´ë©”ë¼ ì†ì„±.
         CameraBuffer data;
         // Dx buffer.
         ID3D11Buffer* cameraBuffer = nullptr;
