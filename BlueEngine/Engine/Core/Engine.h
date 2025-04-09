@@ -31,6 +31,9 @@ namespace Blue
 		// 싱글톤 접근 함수.
 		static Engine& Get();
 
+		// 화면 크기 변경 이벤트 대응 함수.
+		void OnResize(uint32 width, uint32 height);
+
 		// 엔진 종료 함수.
 		void Quit();
 
@@ -57,7 +60,7 @@ namespace Blue
 		// 모델 로더 객체.
 		std::unique_ptr<class ModelLoader> modelLoader;
 
-		// 입력 관리자 객체.
+		// 입력 관리자 객체 생성.
 		std::unique_ptr<class InputController> inputController;
 
 		// 메인 레벨.

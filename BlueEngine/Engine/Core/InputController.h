@@ -74,6 +74,9 @@ namespace Blue
  
         // 싱글톤 접근 함수.
         static InputController& Get();
+
+        // 생성 여부 (유효성 판단).
+        static bool IsValid();
  
     private:
  

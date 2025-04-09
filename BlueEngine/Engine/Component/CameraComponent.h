@@ -19,12 +19,13 @@ namespace Blue
         CameraComponent();
         ~CameraComponent() = default;
 
+        virtual void Tick(float deltaTime) override;
         virtual void Draw() override;
 
     private:
         // 카메라 속성.
         CameraBuffer data;
-        // Dx buffer.
+        // Dx Buffer.
         ID3D11Buffer* cameraBuffer = nullptr;
     };
 }
