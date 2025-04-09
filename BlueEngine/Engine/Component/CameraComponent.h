@@ -11,6 +11,9 @@ namespace Blue
     {
         // 뷰 변환 행렬.
         Matrix4 viewMatrix;
+
+        // 투영 변환 행렬.
+        Matrix4 projectionMatrix;
     };
 
     class CameraComponent : public Component
@@ -25,7 +28,7 @@ namespace Blue
     private:
         // 카메라 속성.
         CameraBuffer data;
-        // Dx Buffer.
+        // DX Buffer.
         ID3D11Buffer* cameraBuffer = nullptr;
     };
 }

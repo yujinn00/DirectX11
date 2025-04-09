@@ -7,7 +7,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee014241-b6a2-4ac3-b169-c94d11f2695f" name="변경" comment="" />
+    <list default="true" id="ee014241-b6a2-4ac3-b169-c94d11f2695f" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlueEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlueEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledShader/DefaultVertexShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/DefaultVertexShader.cso" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledShader/TextureMappingPixelShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/TextureMappingPixelShader.cso" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledShader/TextureMappingVertexShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/TextureMappingVertexShader.cso" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Component/CameraComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Component/CameraComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Component/CameraComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Component/CameraComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Core/Engine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Core/Engine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Core/Engine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Core/Engine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/HLSLShader/DefaultVertexShader.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/HLSLShader/DefaultVertexShader.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingPixelShader.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingPixelShader.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingVertexShader.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingVertexShader.hlsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Math/Matrix4.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Math/Matrix4.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Math/Matrix4.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Math/Matrix4.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Render/QuadMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Render/QuadMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Render/TriangleMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Render/TriangleMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Render/Vertex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Render/Vertex.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Resource/ModelLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Resource/ModelLoader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Shader/Shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Shader/Shader.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,21 +176,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "C/C++ 프로젝트.Engine.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;C/C++ 프로젝트.Engine.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C/C++&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Engine" type="CppProject" factoryName="C++ Project">
       <configuration_1 setup="1">
@@ -204,6 +223,7 @@
       <updated>1744157102783</updated>
       <workItem from="1744157104083" duration="2566000" />
       <workItem from="1744159859339" duration="8803000" />
+      <workItem from="1744175201588" duration="11355000" />
     </task>
     <servers />
   </component>
