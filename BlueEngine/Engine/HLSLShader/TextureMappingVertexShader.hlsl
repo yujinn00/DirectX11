@@ -37,7 +37,7 @@ VertexOutput main(VertexInput input)
 
     output.color = input.color;
     output.texCoord = input.texCoord;
-    output.normal = mul(input.normal, (float3x3)worldMatrix);
+    output.normal = normalize(mul(input.normal, (float3x3)worldMatrix));
 
     return output;
 }
