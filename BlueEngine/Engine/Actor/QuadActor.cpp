@@ -31,7 +31,7 @@ namespace Blue
 
         // 텍스처 로드 및 셰이더에 설정.
         std::weak_ptr<Texture> texture;
-        TextureLoader::Get().Load("T_White.png", texture);
+        TextureLoader::Get().Load("T_Red.png", texture);
         shader.lock()->SetTexture(texture);
     }
 }

@@ -32,14 +32,28 @@ float4 main(PixelInput input) : SV_TARGET
     // Half Lambert.
     // nDotL = pow((nDotL * 0.7f) + (1.0 - 0.7), 1);
 
-    // Phong (specular)
-    
+    float4 ambient = texColor * float4(0.1f, 0.1f, 0.1f, 1.0f);
+    float4 diffuse = texColor * nDotL;
+    float4 finalColor = ambient + diffuse;
 
-    float4 finalColor = texColor * nDotL;
+    // Phong (specular).
+    // float specular = CalcPhong(worldNormal, lightDir, input.cameraDirection);
 
-    // return float4(1.0f, 0.0f, 0.0f, 1.0f);
-    // return float4(input.color, 1.0f);
-    // return float4(input.texCoord, 0.0f, 1.0f)
-    // return float4(lightIntensity, lightIntensity, lightIntensity, 1);
+    // Blinn-Phong (specular).
+    float specular = 0;
+    if (nDotL)
+    {
+        // Half Vector.
+        float3 viewDirection = normalize(input.cameraDirection);
+        float3 halfVector = normalize((-lightDir) + (-viewDirection));
+
+        // nDotH.
+        float nDotH = saturate(dot(worldNormal, halfVector));
+        float shininess = 32.0f;
+        specular = pow(nDotH, shininess);
+    }
+
+    finalColor += float4(0.4f, 0.6f, 0.8f, 1.0f) * specular;
+
     return finalColor;
 }
