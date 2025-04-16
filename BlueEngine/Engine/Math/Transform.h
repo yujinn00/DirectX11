@@ -17,6 +17,11 @@ namespace Blue
 		void Tick();
 		void Bind();
 
+		// 방향 벡터 함수.
+		Vector3 Right();	// x축.
+		Vector3 Up();		// y축.
+		Vector3 Forward();	// z축.
+
 	public:
 		// 트랜스폼(변환) 요소 (TRS).
 		Vector3 position = Vector3::Zero;

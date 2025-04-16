@@ -26,4 +26,10 @@ namespace Blue
 			texture.lock()->Bind();
 		}
 	}
+
+	void TextureMappingShader::SetTexture(const std::weak_ptr<class Texture>& newTexture)
+	{
+		// 내부 텍스처 값 설정.
+		texture = newTexture;
+	}
 }
