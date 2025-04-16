@@ -31,5 +31,11 @@ namespace Blue
 
 		// 노멀 (법선, Normal) 벡터.
 		Vector3 normal;
+
+		// 탄젠트 (tangent) 벡터.
+		Vector3 tangent;
+ 
+		// 바이탄젠트 (bitangent) 벡터.
+		Vector3 bitangent;
 	};
 }

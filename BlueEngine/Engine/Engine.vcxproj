@@ -125,7 +125,6 @@
     <ClInclude Include="Core\InputController.h" />
     <ClInclude Include="Core\Type.h" />
     <ClInclude Include="Core\Window.h" />
-    <ClInclude Include="HLSLShader\Common.hlsli" />
     <ClInclude Include="Level\DemoLevel.h" />
     <ClInclude Include="Level\Level.h" />
     <ClInclude Include="Math\Matrix4.h" />
@@ -164,6 +163,14 @@
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.0</ShaderModel>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.0</ShaderModel>
     </FxCompile>
+    <FxCompile Include="HLSLShader\NormalMappingPixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="HLSLShader\NormalMappingVertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+    </FxCompile>
     <FxCompile Include="HLSLShader\TextureMappingPixelShader.hlsl">
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\CompiledShader\%(Filename).cso</ObjectFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\CompiledShader\%(Filename).cso</ObjectFileOutput>
@@ -182,6 +189,7 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="HLSLShader\Common.hlsli" />
     <None Include="Resource\ShaderLoader.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

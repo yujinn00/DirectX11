@@ -1,4 +1,3 @@
-
 // Lambert cosine law.
 float CalcLambert(float3 worldNormal, float3 lightDirection)
 {
@@ -31,6 +30,29 @@ float CalcPhong(
         float3 viewDirection = normalize(cameraDirection);
         float rDotV = saturate(dot(reflection, -viewDirection));
         specular = pow(rDotV, shininess);
+    }
+
+    return specular;
+}
+
+float CalcBlinnPhong(
+    float3 worldNormal,
+    float3 lightDirection,
+    float3 cameraDirection,
+    float shininess = 32.0f)
+{
+    float NoH = CalcLambert(worldNormal, lightDirection);
+
+    float specular = 0;
+    if (NoH > 0)
+    {
+        // Half Vector.
+        float3 viewDirection = normalize(cameraDirection);
+        float3 halfVector = normalize((-lightDirection) + (-viewDirection));
+
+        // nDotH.
+        float NoH = saturate(dot(worldNormal, halfVector));
+        specular = pow(NoH, shininess);
     }
 
     return specular;
