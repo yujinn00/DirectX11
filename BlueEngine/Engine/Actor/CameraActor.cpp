@@ -38,7 +38,7 @@ namespace Blue
             }
         }
 
-        static const float moveSpeed = 1.0f;
+        static const float moveSpeed = 1.5f;
 
         // 카메라 이동 처리.
         if (input.IsKey('A') || input.IsKey(VK_LEFT))
@@ -73,14 +73,14 @@ namespace Blue
         {
             // 위쪽 이동.
             // transform.position.y += moveSpeed * deltaTime;
-            transform.position += transform.Up() * moveSpeed * deltaTime;
+            transform.position -= transform.Up() * moveSpeed * deltaTime;
         }
 
         if (input.IsKey('E'))
         {
             // 아래쪽 이동.
             // transform.position.y -= moveSpeed * deltaTime;
-            transform.position -= transform.Up() * moveSpeed * deltaTime;
+            transform.position += transform.Up() * moveSpeed * deltaTime;
         }
     }
 

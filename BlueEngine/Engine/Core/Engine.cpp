@@ -64,7 +64,7 @@ namespace Blue
 		previousTime = currentTime;
 
 		// 프레임 계산에 사용할 변수.
-		float targetFrameRate = 120.0f;
+		float targetFrameRate = 60.0f;
 		// 고정 프레임 속도를 사용하기 위한 변수.
 		float oneFrameTime = 1.0f / targetFrameRate;
 

@@ -125,6 +125,7 @@
     <ClInclude Include="Core\InputController.h" />
     <ClInclude Include="Core\Type.h" />
     <ClInclude Include="Core\Window.h" />
+    <ClInclude Include="HLSLShader\Common.hlsli" />
     <ClInclude Include="Level\DemoLevel.h" />
     <ClInclude Include="Level\Level.h" />
     <ClInclude Include="Math\Matrix4.h" />

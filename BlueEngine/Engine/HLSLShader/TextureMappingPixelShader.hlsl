@@ -1,9 +1,12 @@
+#include "Common.hlsli"
+
 struct PixelInput
 {
     float4 position : SV_POSITION;
     float3 color : COLOR;
     float2 texCoord : TEXCOORD;
     float3 normal : NORMAL;
+    float3 cameraDirection : TEXCOORD1;
 };
 
 // Texture
@@ -23,12 +26,16 @@ float4 main(PixelInput input) : SV_TARGET
     float3 worldNormal = normalize(input.normal);
 
     // Dot (Lambert).
-    float nDotl = saturate(dot(worldNormal, -lightDir));
+    // float nDotl = saturate(dot(worldNormal, -lightDir));
+    float nDotL = CalcLambert(worldNormal, lightDir);
 
     // Half Lambert.
-    nDotl = pow((nDotl * 0.7f) + (1.0 - 0.7), 1);
+    // nDotL = pow((nDotL * 0.7f) + (1.0 - 0.7), 1);
 
-    float4 finalColor = texColor * nDotl;
+    // Phong (specular)
+    
+
+    float4 finalColor = texColor * nDotL;
 
     // return float4(1.0f, 0.0f, 0.0f, 1.0f);
     // return float4(input.color, 1.0f);
