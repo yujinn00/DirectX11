@@ -8,15 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee014241-b6a2-4ac3-b169-c94d11f2695f" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlueEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlueEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledShader/DefaultPixelShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/DefaultPixelShader.cso" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompiledShader/DefaultVertexShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/DefaultVertexShader.cso" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledShader/TextureMappingPixelShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/TextureMappingPixelShader.cso" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CompiledShader/TextureMappingVertexShader.cso" beforeDir="false" afterPath="$PROJECT_DIR$/CompiledShader/TextureMappingVertexShader.cso" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Actor/QuadActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Actor/QuadActor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Actor/QuadActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Actor/QuadActor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine/Engine.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Engine.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/HLSLShader/Common.hlsli" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingPixelShader.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingPixelShader.hlsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingVertexShader.hlsl" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/HLSLShader/TextureMappingVertexShader.hlsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Render/Vertex.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Render/Vertex.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Resource/ModelLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Resource/ModelLoader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine/Shader/Shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Shader/Shader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Engine.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Engine.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Level/DemoLevel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Level/DemoLevel.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Render/Texture.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Render/Texture.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine/Render/Texture.h" beforeDir="false" afterPath="$PROJECT_DIR$/Engine/Render/Texture.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +158,11 @@
       <workItem from="1744175201588" duration="11597000" />
       <workItem from="1744244934987" duration="96000" />
       <workItem from="1744762816679" duration="23340000" />
+      <workItem from="1744791331398" duration="166000" />
+      <workItem from="1744942143956" duration="1000" />
+      <workItem from="1745385119654" duration="1454000" />
+      <workItem from="1745388355834" duration="3231000" />
+      <workItem from="1745392188765" duration="822000" />
     </task>
     <servers />
   </component>
@@ -162,6 +170,17 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

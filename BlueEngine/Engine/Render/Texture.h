@@ -53,7 +53,7 @@ namespace Blue
 			uint32 index = 0u);
 		~Texture();
 
-		void Bind();
+		void Bind(uint32 index = 0);
 
 	private:
 		// 내부에서 이미지 부르는 함수.
@@ -64,7 +64,7 @@ namespace Blue
 		std::string name;
 
 		// 텍스처 순번.
-		uint32 index = 0;
+		// uint32 index = 0u;
 
 		// 바인딩 셰이더 타입.
 		BindType bindType = BindType::PixelShader;
