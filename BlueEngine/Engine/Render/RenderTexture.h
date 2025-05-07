@@ -20,10 +20,15 @@ namespace Blue
             return renderTargetView;
         }
 
-        // DepthStencilView Getter.
         ID3D11RenderTargetView** GetRenderTargetAddress()
         {
             return &renderTargetView;
+        }
+
+        // DepthStencilView Getter.
+        ID3D11DepthStencilView* GetDepthStencilView()
+        {
+            return depthStencilView;
         }
 
     private:
