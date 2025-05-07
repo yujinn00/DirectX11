@@ -48,6 +48,6 @@ namespace Blue
         static const float rotationSpeed = 10.0f;
 
         // 회전.
-        transform.rotation.y += deltaTime * rotationSpeed;
+        // transform.rotation.y += deltaTime * rotationSpeed;
     }
 }
