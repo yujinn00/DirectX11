@@ -25,7 +25,6 @@ namespace Blue
 		outTexture = newTexture;
 	}
 
-	
 	void TextureLoader::GetNewRenderTexture(std::weak_ptr<RenderTexture>& outTexture, uint32 width, uint32 height)
 	{
 		// 새로운 텍스처 생성.

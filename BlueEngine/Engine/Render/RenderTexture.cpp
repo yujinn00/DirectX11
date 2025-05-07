@@ -94,7 +94,7 @@ Blue::RenderTexture::RenderTexture(uint32 width, uint32 height)
 
 		// 2차원 리소스 생성.
 		ThrowIfFailed(
-			device->CreateTexture2D(&depthStencilDesc, nullptr, &depthStencilBuffer),
+			device.CreateTexture2D(&depthStencilDesc, nullptr, &depthStencilBuffer),
 			TEXT("Failed to create depth stencil buffer"))
 
 		D3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc = {};
@@ -103,7 +103,7 @@ Blue::RenderTexture::RenderTexture(uint32 width, uint32 height)
 
 		// 뷰 생성.
 		ThrowIfFailed(
-			device->CreateDepthStencilView(
+			device.CreateDepthStencilView(
 				depthStencilBuffer,
 				&depthStencilViewDesc,
 				&depthStencilView),
